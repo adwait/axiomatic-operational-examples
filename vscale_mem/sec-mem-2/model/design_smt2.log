@@ -1,0 +1,372 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4052 (git sha1 a58571d0, clang 6.0.0-1ubuntu2 -fPIC -Os)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+3. Printing statistics.
+
+=== vscale_src_b_mux ===
+
+   Number of wires:                 15
+   Number of wire bits:            237
+   Number of public wires:          15
+   Number of public wire bits:     237
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                139
+     $and                           64
+     $mux                           32
+     $not                            5
+     $or                            38
+
+=== vscale_src_a_mux ===
+
+   Number of wires:                 11
+   Number of wire bits:            200
+   Number of public wires:          11
+   Number of public wire bits:     200
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                134
+     $and                           64
+     $mux                           32
+     $not                            3
+     $or                            35
+
+=== vscale_sim_top ===
+
+   Number of wires:                545
+   Number of wire bits:           4523
+   Number of public wires:         159
+   Number of public wire bits:    3114
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                444
+     $add                            2
+     $anyseq                        34
+     $assert                         1
+     $assume                        15
+     $dff                           11
+     $eq                            49
+     $ge                             1
+     $logic_and                     88
+     $logic_not                     44
+     $logic_or                     111
+     $lt                             2
+     $mem                            3
+     $mux                           36
+     $ne                             4
+     $not                            7
+     $pmux                          12
+     $reduce_bool                    2
+     $reduce_or                     14
+     $sub                            4
+     vscale_arbiter                  1
+     vscale_core                     2
+     vscale_dp_hasti_sram            1
+
+=== vscale_regfile ===
+
+   Number of wires:               1264
+   Number of wire bits:           4352
+   Number of public wires:         203
+   Number of public wire bits:    3291
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4271
+     $and                           82
+     $anyseq                        37
+     $dff                         1025
+     $mux                         3109
+     $not                            6
+     $or                            12
+
+=== vscale_pipeline ===
+
+   Number of wires:                569
+   Number of wire bits:           2518
+   Number of public wires:         185
+   Number of public wire bits:    2134
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1487
+     $and                          203
+     $anyseq                        64
+     $dff                          227
+     $mux                          771
+     $not                           44
+     $or                           169
+     vscale_PC_mux                   1
+     vscale_alu                      1
+     vscale_csr_file                 1
+     vscale_ctrl                     1
+     vscale_imm_gen                  1
+     vscale_mul_div                  1
+     vscale_regfile                  1
+     vscale_src_a_mux                1
+     vscale_src_b_mux                1
+
+=== vscale_mul_div ===
+
+   Number of wires:               1381
+   Number of wire bits:           4615
+   Number of public wires:         656
+   Number of public wire bits:    3890
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3954
+     $and                         1005
+     $anyseq                       521
+     $dff                          204
+     $mux                         1102
+     $not                          211
+     $or                           527
+     $xor                          384
+
+=== vscale_imm_gen ===
+
+   Number of wires:                 77
+   Number of wire bits:            333
+   Number of public wires:          45
+   Number of public wire bits:     301
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                204
+     $and                           64
+     $anyseq                        32
+     $mux                           32
+     $not                            6
+     $or                            70
+
+=== vscale_hasti_bridge ===
+
+   Number of wires:                 19
+   Number of wire bits:            215
+   Number of public wires:          19
+   Number of public wire bits:     215
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $and                            1
+     $not                            1
+
+=== vscale_dp_hasti_sram ===
+
+   Number of wires:               1799
+   Number of wire bits:           9043
+   Number of public wires:         508
+   Number of public wire bits:    7752
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7072
+     $and                          322
+     $anyseq                       189
+     $dff                         1078
+     $mux                         5271
+     $not                           55
+     $or                            97
+     $xor                           60
+
+=== vscale_ctrl ===
+
+   Number of wires:                399
+   Number of wire bits:            738
+   Number of public wires:         357
+   Number of public wire bits:     696
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                485
+     $and                           66
+     $anyseq                        10
+     $dff                           19
+     $mux                          106
+     $not                           64
+     $or                           210
+     $xor                           10
+
+=== vscale_csr_file ===
+
+   Number of wires:               1531
+   Number of wire bits:           5985
+   Number of public wires:         761
+   Number of public wire bits:    5215
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4558
+     $and                         1185
+     $anyseq                        73
+     $dff                          524
+     $ff                            32
+     $mux                         1561
+     $not                          102
+     $or                           767
+     $xor                          314
+
+=== vscale_core ===
+
+   Number of wires:                 56
+   Number of wire bits:            645
+   Number of public wires:          56
+   Number of public wire bits:     645
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     vscale_hasti_bridge             2
+     vscale_pipeline                 1
+
+=== vscale_arbiter ===
+
+   Number of wires:                 59
+   Number of wire bits:            725
+   Number of public wires:          59
+   Number of public wire bits:     725
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                242
+     $and                          156
+     $dff                            2
+     $mux                            4
+     $not                            2
+     $or                            78
+
+=== vscale_alu ===
+
+   Number of wires:                345
+   Number of wire bits:           2264
+   Number of public wires:         345
+   Number of public wire bits:    2264
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1517
+     $and                          488
+     $mux                          404
+     $not                           55
+     $or                           442
+     $xor                          128
+
+=== vscale_PC_mux ===
+
+   Number of wires:                188
+   Number of wire bits:           1029
+   Number of public wires:         188
+   Number of public wire bits:    1029
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                601
+     $and                          274
+     $mux                           52
+     $not                            9
+     $or                           205
+     $xor                           61
+
+=== design hierarchy ===
+
+   vscale_sim_top                    1
+     vscale_arbiter                  1
+     vscale_core                     2
+       vscale_hasti_bridge           2
+       vscale_pipeline               1
+         vscale_PC_mux               1
+         vscale_alu                  1
+         vscale_csr_file             1
+         vscale_ctrl                 1
+         vscale_imm_gen              1
+         vscale_mul_div              1
+         vscale_regfile              1
+         vscale_src_a_mux            1
+         vscale_src_b_mux            1
+     vscale_dp_hasti_sram            1
+
+   Number of wires:              14151
+   Number of wire bits:          60983
+   Number of public wires:        6446
+   Number of public wire bits:   52255
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              42444
+     $add                            2
+     $and                         7472
+     $anyseq                      1697
+     $assert                         1
+     $assume                        15
+     $dff                         5089
+     $eq                            49
+     $ff                            64
+     $ge                             1
+     $logic_and                     88
+     $logic_not                     44
+     $logic_or                     111
+     $lt                             2
+     $mem                            3
+     $mux                        19713
+     $ne                             4
+     $not                         1078
+     $or                          5125
+     $pmux                          12
+     $reduce_bool                    2
+     $reduce_or                     14
+     $sub                            4
+     $xor                         1854
+
+4. Executing SMT2 backend.
+Creating SMT-LIBv2 representation of module vscale_PC_mux.
+Creating SMT-LIBv2 representation of module vscale_alu.
+Creating SMT-LIBv2 representation of module vscale_arbiter.
+Creating SMT-LIBv2 representation of module vscale_csr_file.
+Creating SMT-LIBv2 representation of module vscale_ctrl.
+Creating SMT-LIBv2 representation of module vscale_dp_hasti_sram.
+Creating SMT-LIBv2 representation of module vscale_hasti_bridge.
+Creating SMT-LIBv2 representation of module vscale_imm_gen.
+Creating SMT-LIBv2 representation of module vscale_mul_div.
+Creating SMT-LIBv2 representation of module vscale_regfile.
+Creating SMT-LIBv2 representation of module vscale_src_a_mux.
+Creating SMT-LIBv2 representation of module vscale_src_b_mux.
+Creating SMT-LIBv2 representation of module vscale_pipeline.
+Creating SMT-LIBv2 representation of module vscale_core.
+Creating SMT-LIBv2 representation of module vscale_sim_top.
+
+End of script. Logfile hash: 4be7603941, CPU: user 0.99s system 0.02s, MEM: 65.91 MB peak
+Yosys 0.9+4052 (git sha1 a58571d0, clang 6.0.0-1ubuntu2 -fPIC -Os)
+Time spent: 54% 2x write_smt2 (0 sec), 40% 2x read_ilang (0 sec), ...

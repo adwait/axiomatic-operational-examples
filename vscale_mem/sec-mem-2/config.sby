@@ -1,0 +1,14 @@
+[options]
+mode bmc
+depth 12
+
+[engines]
+smtbmc boolector
+
+[script]
+read -formal mvscale_top_c2_mem-2.v
+prep -top vscale_sim_top
+
+[files]
+mvscale_top_c2_mem-2.v
+formal-mem-2.v

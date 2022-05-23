@@ -1,0 +1,47 @@
+[tasks]
+taskProve_r task_prove files_r
+taskBMC_r task_bmc files_r
+taskProve_i task_prove files_i
+taskBMC_i task_bmc files_i
+
+
+[options]
+task_prove:
+mode prove
+--
+
+task_bmc: 
+mode bmc
+depth 20
+--
+
+[engines]
+task_prove:
+abc pdr
+--
+
+task_bmc:
+smtbmc boolector
+--
+
+[script]
+files_r:
+read -formal mvscale_top_c1_nonmem-r.v
+prep -top vscale_sim_top
+--
+
+files_i:
+read -formal mvscale_top_c1_nonmem-i.v
+prep -top vscale_sim_top
+--
+
+[files]
+files_r:
+mvscale_top_c1_nonmem-r.v
+formal-alu-r-ind.v
+--
+
+files_i:
+mvscale_top_c1_nonmem-i.v
+formal-alu-i-ind.v
+--

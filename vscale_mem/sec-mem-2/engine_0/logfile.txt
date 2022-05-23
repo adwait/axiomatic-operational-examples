@@ -1,0 +1,26 @@
+##   0:00:00  Solver: boolector
+##   0:00:04  Checking assumptions in step 0..
+##   0:00:05  Checking assertions in step 0..
+##   0:00:11  Checking assumptions in step 1..
+##   0:00:11  Checking assertions in step 1..
+##   0:00:18  Checking assumptions in step 2..
+##   0:00:19  Checking assertions in step 2..
+##   0:00:25  Checking assumptions in step 3..
+##   0:00:26  Checking assertions in step 3..
+##   0:00:33  Checking assumptions in step 4..
+##   0:00:34  Checking assertions in step 4..
+##   0:00:42  Checking assumptions in step 5..
+##   0:00:42  Checking assertions in step 5..
+##   0:00:51  Checking assumptions in step 6..
+##   0:00:53  Checking assertions in step 6..
+##   0:01:01  Checking assumptions in step 7..
+##   0:01:02  Checking assertions in step 7..
+##   0:01:11  Checking assumptions in step 8..
+##   0:01:14  Checking assertions in step 8..
+##   0:01:23  Checking assumptions in step 9..
+##   0:01:29  Checking assertions in step 9..
+##   0:01:39  Checking assumptions in step 10..
+##   0:01:49  Checking assertions in step 10..
+##   0:02:04  Checking assumptions in step 11..
+##   0:02:24  Checking assertions in step 11..
+##   0:02:51  Status: passed

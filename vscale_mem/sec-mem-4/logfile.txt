@@ -1,0 +1,81 @@
+SBY 23:12:49 [sec-mem-4] Removing directory 'sec-mem-4'.
+SBY 23:12:49 [sec-mem-4] Copy 'mvscale_top_c2_mem.v' to 'sec-mem-4/src/mvscale_top_c2_mem.v'.
+SBY 23:12:49 [sec-mem-4] Copy 'formal-mem.v' to 'sec-mem-4/src/formal-mem.v'.
+SBY 23:12:49 [sec-mem-4] engine_0: smtbmc boolector
+SBY 23:12:49 [sec-mem-4] base: starting process "cd sec-mem-4/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:12:50 [sec-mem-4] base: Warning: Replacing memory \events with list of registers. See formal-mem.v:195, formal-mem.v:193, formal-mem.v:79
+SBY 23:13:09 [sec-mem-4] base: finished (returncode=0)
+SBY 23:13:09 [sec-mem-4] smt2: starting process "cd sec-mem-4/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:13:10 [sec-mem-4] smt2: finished (returncode=0)
+SBY 23:13:10 [sec-mem-4] engine_0: starting process "cd sec-mem-4; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:13:10 [sec-mem-4] engine_0: ##   0:00:00  Solver: boolector
+SBY 23:13:15 [sec-mem-4] engine_0: ##   0:00:04  Checking assumptions in step 0..
+SBY 23:13:15 [sec-mem-4] engine_0: ##   0:00:05  Checking assertions in step 0..
+SBY 23:13:21 [sec-mem-4] engine_0: ##   0:00:10  Checking assumptions in step 1..
+SBY 23:13:21 [sec-mem-4] engine_0: ##   0:00:11  Checking assertions in step 1..
+SBY 23:13:27 [sec-mem-4] engine_0: ##   0:00:17  Checking assumptions in step 2..
+SBY 23:13:28 [sec-mem-4] engine_0: ##   0:00:17  Checking assertions in step 2..
+SBY 23:13:34 [sec-mem-4] engine_0: ##   0:00:23  Checking assumptions in step 3..
+SBY 23:13:35 [sec-mem-4] engine_0: ##   0:00:24  Checking assertions in step 3..
+SBY 23:13:41 [sec-mem-4] engine_0: ##   0:00:31  Checking assumptions in step 4..
+SBY 23:13:42 [sec-mem-4] engine_0: ##   0:00:31  Checking assertions in step 4..
+SBY 23:13:48 [sec-mem-4] engine_0: ##   0:00:38  Checking assumptions in step 5..
+SBY 23:13:49 [sec-mem-4] engine_0: ##   0:00:38  Checking assertions in step 5..
+SBY 23:13:56 [sec-mem-4] engine_0: ##   0:00:45  Checking assumptions in step 6..
+SBY 23:13:58 [sec-mem-4] engine_0: ##   0:00:47  Checking assertions in step 6..
+SBY 23:14:05 [sec-mem-4] engine_0: ##   0:00:55  Checking assumptions in step 7..
+SBY 23:14:07 [sec-mem-4] engine_0: ##   0:00:56  Checking assertions in step 7..
+SBY 23:14:16 [sec-mem-4] engine_0: ##   0:01:05  Checking assumptions in step 8..
+SBY 23:14:21 [sec-mem-4] engine_0: ##   0:01:11  Checking assertions in step 8..
+SBY 23:14:30 [sec-mem-4] engine_0: ##   0:01:19  Checking assumptions in step 9..
+SBY 23:14:39 [sec-mem-4] engine_0: ##   0:01:29  Checking assertions in step 9..
+SBY 23:15:01 [sec-mem-4] engine_0: ##   0:01:50  Checking assumptions in step 10..
+SBY 23:15:14 [sec-mem-4] engine_0: ##   0:02:04  Checking assertions in step 10..
+SBY 23:15:33 [sec-mem-4] engine_0: ##   0:02:22  Checking assumptions in step 11..
+SBY 23:15:55 [sec-mem-4] engine_0: ##   0:02:45  Checking assertions in step 11..
+SBY 23:16:48 [sec-mem-4] engine_0: ##   0:03:37  Checking assumptions in step 12..
+SBY 23:17:07 [sec-mem-4] engine_0: ##   0:03:57  Checking assertions in step 12..
+SBY 23:18:11 [sec-mem-4] engine_0: ##   0:05:00  waiting for solver (1 minute)
+SBY 23:18:16 [sec-mem-4] engine_0: ##   0:05:05  Checking assumptions in step 13..
+SBY 23:18:59 [sec-mem-4] engine_0: ##   0:05:48  Checking assertions in step 13..
+SBY 23:20:03 [sec-mem-4] engine_0: ##   0:06:52  waiting for solver (1 minute)
+SBY 23:21:26 [sec-mem-4] engine_0: ##   0:08:15  Checking assumptions in step 14..
+SBY 23:22:26 [sec-mem-4] engine_0: ##   0:09:15  waiting for solver (1 minute)
+SBY 23:22:52 [sec-mem-4] engine_0: ##   0:09:41  Checking assertions in step 14..
+SBY 23:23:56 [sec-mem-4] engine_0: ##   0:10:45  waiting for solver (1 minute)
+SBY 23:25:46 [sec-mem-4] engine_0: ##   0:12:36  Checking assumptions in step 15..
+SBY 23:26:46 [sec-mem-4] engine_0: ##   0:13:36  waiting for solver (1 minute)
+SBY 23:28:01 [sec-mem-4] engine_0: ##   0:14:51  Checking assertions in step 15..
+SBY 23:29:05 [sec-mem-4] engine_0: ##   0:15:55  waiting for solver (1 minute)
+SBY 23:32:11 [sec-mem-4] engine_0: ##   0:19:01  Checking assumptions in step 16..
+SBY 23:33:11 [sec-mem-4] engine_0: ##   0:20:01  waiting for solver (1 minute)
+SBY 23:34:34 [sec-mem-4] engine_0: ##   0:21:24  Checking assertions in step 16..
+SBY 23:35:38 [sec-mem-4] engine_0: ##   0:22:28  waiting for solver (1 minute)
+SBY 23:39:38 [sec-mem-4] engine_0: ##   0:26:28  waiting for solver (5 minutes)
+SBY 23:42:25 [sec-mem-4] engine_0: ##   0:29:14  Checking assumptions in step 17..
+SBY 23:43:25 [sec-mem-4] engine_0: ##   0:30:14  waiting for solver (1 minute)
+SBY 23:45:54 [sec-mem-4] engine_0: ##   0:32:43  Checking assertions in step 17..
+SBY 23:46:59 [sec-mem-4] engine_0: ##   0:33:48  waiting for solver (1 minute)
+SBY 23:50:59 [sec-mem-4] engine_0: ##   0:37:48  waiting for solver (5 minutes)
+SBY 23:55:59 [sec-mem-4] engine_0: ##   0:42:48  waiting for solver (10 minutes)
+SBY 23:56:15 [sec-mem-4] engine_0: ##   0:43:04  Checking assumptions in step 18..
+SBY 23:57:15 [sec-mem-4] engine_0: ##   0:44:04  waiting for solver (1 minute)
+SBY  0:01:08 [sec-mem-4] engine_0: ##   0:47:58  Checking assertions in step 18..
+SBY  0:02:13 [sec-mem-4] engine_0: ##   0:49:03  waiting for solver (1 minute)
+SBY  0:06:13 [sec-mem-4] engine_0: ##   0:53:03  waiting for solver (5 minutes)
+SBY  0:30:44 [sec-mem-4] engine_0: ##   1:17:34  waiting for solver (10 minutes)
+SBY  0:34:01 [sec-mem-4] engine_0: ##   1:20:51  Checking assumptions in step 19..
+SBY  0:35:01 [sec-mem-4] engine_0: ##   1:21:51  waiting for solver (1 minute)
+SBY  0:37:28 [sec-mem-4] engine_0: ##   1:24:18  Checking assertions in step 19..
+SBY  0:38:33 [sec-mem-4] engine_0: ##   1:25:23  waiting for solver (1 minute)
+SBY  0:42:33 [sec-mem-4] engine_0: ##   1:29:23  waiting for solver (5 minutes)
+SBY  0:47:33 [sec-mem-4] engine_0: ##   1:34:23  waiting for solver (10 minutes)
+SBY  0:52:33 [sec-mem-4] engine_0: ##   1:39:23  waiting for solver (15 minutes)
+SBY  1:07:33 [sec-mem-4] engine_0: ##   1:54:23  waiting for solver (30 minutes)
+SBY  1:11:08 [sec-mem-4] engine_0: ##   1:57:57  Status: passed
+SBY  1:11:08 [sec-mem-4] engine_0: finished (returncode=0)
+SBY  1:11:08 [sec-mem-4] engine_0: Status returned by engine: pass
+SBY  1:11:08 [sec-mem-4] summary: Elapsed clock time [H:MM:SS (secs)]: 1:58:18 (7098)
+SBY  1:11:08 [sec-mem-4] summary: Elapsed process time [H:MM:SS (secs)]: 1:58:52 (7132)
+SBY  1:11:08 [sec-mem-4] summary: engine_0 (smtbmc boolector) returned pass
+SBY  1:11:08 [sec-mem-4] DONE (PASS, rc=0)

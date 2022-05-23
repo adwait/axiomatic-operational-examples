@@ -1,0 +1,21 @@
+SBY 20:50:10 [sec-alu-ind_taskProve_r] Removing directory 'sec-alu-ind_taskProve_r'.
+SBY 20:50:10 [sec-alu-ind_taskProve_r] Copy 'mvscale_top_c1_nonmem-r.v' to 'sec-alu-ind_taskProve_r/src/mvscale_top_c1_nonmem-r.v'.
+SBY 20:50:10 [sec-alu-ind_taskProve_r] Copy 'formal-alu-r-ind.v' to 'sec-alu-ind_taskProve_r/src/formal-alu-r-ind.v'.
+SBY 20:50:10 [sec-alu-ind_taskProve_r] engine_0: abc pdr
+SBY 20:50:10 [sec-alu-ind_taskProve_r] nomem: starting process "cd sec-alu-ind_taskProve_r/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 20:50:46 [sec-alu-ind_taskProve_r] nomem: finished (returncode=0)
+SBY 20:50:46 [sec-alu-ind_taskProve_r] aig: starting process "cd sec-alu-ind_taskProve_r/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:51:24 [sec-alu-ind_taskProve_r] aig: finished (returncode=0)
+SBY 20:51:24 [sec-alu-ind_taskProve_r] engine_0: starting process "cd sec-alu-ind_taskProve_r; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Warning: The last 9 outputs are interpreted as constraints.
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Invariant F[25] : 658 clauses with 307 flops (out of 3353) (cex = 0, ave = 49.82)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Verification of invariant with 658 clauses was successful.  Time =     0.08 sec
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Property proved.  Time =    31.33 sec
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Counter-example is not available.
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: finished (returncode=0)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Status returned by engine: PASS
+SBY 20:51:56 [sec-alu-ind_taskProve_r] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:45 (105)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:45 (105)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] summary: engine_0 (abc pdr) returned PASS
+SBY 20:51:56 [sec-alu-ind_taskProve_r] DONE (PASS, rc=0)

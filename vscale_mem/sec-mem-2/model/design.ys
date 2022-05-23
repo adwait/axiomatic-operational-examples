@@ -1,0 +1,14 @@
+# running in sec-mem-2/src/
+read -formal mvscale_top_c2_mem-2.v
+prep -top vscale_sim_top
+
+memory_nordff
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="130">
+<testsuite disabled="0" errors="0" failures="0" name="sec-alu-ind" skipped="0" tests="1" time="130">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="sec-alu-ind" name="taskProve_i" status="PASS" time="130">
+<system-out>SBY 21:06:27 [sec-alu-ind_taskProve_i] Removing directory 'sec-alu-ind_taskProve_i'.
+SBY 21:06:27 [sec-alu-ind_taskProve_i] Copy 'mvscale_top_c1_nonmem-i.v' to 'sec-alu-ind_taskProve_i/src/mvscale_top_c1_nonmem-i.v'.
+SBY 21:06:27 [sec-alu-ind_taskProve_i] Copy 'formal-alu-i-ind.v' to 'sec-alu-ind_taskProve_i/src/formal-alu-i-ind.v'.
+SBY 21:06:27 [sec-alu-ind_taskProve_i] engine_0: abc pdr
+SBY 21:06:27 [sec-alu-ind_taskProve_i] nomem: starting process &quot;cd sec-alu-ind_taskProve_i/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys&quot;
+SBY 21:07:10 [sec-alu-ind_taskProve_i] nomem: finished (returncode=0)
+SBY 21:07:10 [sec-alu-ind_taskProve_i] aig: starting process &quot;cd sec-alu-ind_taskProve_i/model; yosys -ql design_aiger.log design_aiger.ys&quot;
+SBY 21:07:55 [sec-alu-ind_taskProve_i] aig: finished (returncode=0)
+SBY 21:07:55 [sec-alu-ind_taskProve_i] engine_0: starting process &quot;cd sec-alu-ind_taskProve_i; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'&quot;
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: ABC command line: &quot;read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw&quot;.
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Warning: The last 9 outputs are interpreted as constraints.
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Invariant F[25] : 659 clauses with 308 flops (out of 3353) (cex = 0, ave = 48.93)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Verification of invariant with 659 clauses was successful.  Time =     0.11 sec
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Property proved.  Time =    42.19 sec
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Counter-example is not available.
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: finished (returncode=0)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Status returned by engine: PASS
+SBY 21:08:38 [sec-alu-ind_taskProve_i] summary: Elapsed clock time [H:MM:SS (secs)]: 0:02:10 (130)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] summary: Elapsed process time [H:MM:SS (secs)]: 0:02:10 (130)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] summary: engine_0 (abc pdr) returned PASS
+SBY 21:08:38 [sec-alu-ind_taskProve_i] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>

@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+
+[engines]
+abc pdr
+
+
+[script]
+read -formal mvscale_top_c1_nonmem-r.v
+prep -top vscale_sim_top
+
+
+[files]
+mvscale_top_c1_nonmem-r.v
+formal-alu-r-ind.v
+

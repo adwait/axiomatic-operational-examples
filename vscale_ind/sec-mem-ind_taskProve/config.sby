@@ -1,0 +1,15 @@
+[options]
+mode prove
+
+
+[engines]
+abc pdr
+
+
+[script]
+read -formal mvscale_top_c1_mem.v
+prep -top vscale_sim_top
+
+[files]
+mvscale_top_c1_mem.v
+formal-mem-ind.v

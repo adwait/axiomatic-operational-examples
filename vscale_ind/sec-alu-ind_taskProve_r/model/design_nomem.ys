@@ -1,0 +1,15 @@
+# running in sec-alu-ind_taskProve_r/src/
+read -formal mvscale_top_c1_nonmem-r.v
+prep -top vscale_sim_top
+
+
+memory_map
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design_nomem.il

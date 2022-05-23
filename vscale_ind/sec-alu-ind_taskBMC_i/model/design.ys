@@ -1,0 +1,15 @@
+# running in sec-alu-ind_taskBMC_i/src/
+
+read -formal mvscale_top_c1_nonmem-i.v
+prep -top vscale_sim_top
+
+memory_nordff
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

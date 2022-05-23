@@ -1,0 +1,59 @@
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] Removing directory 'sec-alu-ind_taskBMC_r'.
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] Copy 'mvscale_top_c1_nonmem-r.v' to 'sec-alu-ind_taskBMC_r/src/mvscale_top_c1_nonmem-r.v'.
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] Copy 'formal-alu-r-ind.v' to 'sec-alu-ind_taskBMC_r/src/formal-alu-r-ind.v'.
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] engine_0: smtbmc boolector
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] base: starting process "cd sec-alu-ind_taskBMC_r/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:52:30 [sec-alu-ind_taskBMC_r] base: finished (returncode=0)
+SBY 20:52:30 [sec-alu-ind_taskBMC_r] smt2: starting process "cd sec-alu-ind_taskBMC_r/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:52:33 [sec-alu-ind_taskBMC_r] smt2: finished (returncode=0)
+SBY 20:52:33 [sec-alu-ind_taskBMC_r] engine_0: starting process "cd sec-alu-ind_taskBMC_r; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:52:33 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:00  Solver: boolector
+SBY 20:52:42 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:08  Checking assumptions in step 0..
+SBY 20:52:43 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:09  Checking assertions in step 0..
+SBY 20:52:51 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:17  Checking assumptions in step 1..
+SBY 20:52:52 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:18  Checking assertions in step 1..
+SBY 20:53:01 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:28  Checking assumptions in step 2..
+SBY 20:53:02 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:29  Checking assertions in step 2..
+SBY 20:53:13 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:40  Checking assumptions in step 3..
+SBY 20:53:15 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:41  Checking assertions in step 3..
+SBY 20:53:26 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:52  Checking assumptions in step 4..
+SBY 20:53:30 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:56  Checking assertions in step 4..
+SBY 20:53:39 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:06  Checking assumptions in step 5..
+SBY 20:53:44 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:10  Checking assertions in step 5..
+SBY 20:53:54 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:20  Checking assumptions in step 6..
+SBY 20:53:58 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:24  Checking assertions in step 6..
+SBY 20:54:09 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:35  Checking assumptions in step 7..
+SBY 20:54:18 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:44  Checking assertions in step 7..
+SBY 20:54:31 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:57  Checking assumptions in step 8..
+SBY 20:54:37 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:03  Checking assertions in step 8..
+SBY 20:54:48 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:15  Checking assumptions in step 9..
+SBY 20:55:01 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:27  Checking assertions in step 9..
+SBY 20:55:14 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:40  Checking assumptions in step 10..
+SBY 20:55:23 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:49  Checking assertions in step 10..
+SBY 20:55:36 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:02  Checking assumptions in step 11..
+SBY 20:55:47 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:13  Checking assertions in step 11..
+SBY 20:56:02 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:28  Checking assumptions in step 12..
+SBY 20:56:24 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:50  Checking assertions in step 12..
+SBY 20:56:42 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:09  Checking assumptions in step 13..
+SBY 20:56:56 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:22  Checking assertions in step 13..
+SBY 20:57:12 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:39  Checking assumptions in step 14..
+SBY 20:57:33 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:59  Checking assertions in step 14..
+SBY 20:57:55 [sec-alu-ind_taskBMC_r] engine_0: ##   0:05:22  Checking assumptions in step 15..
+SBY 20:58:41 [sec-alu-ind_taskBMC_r] engine_0: ##   0:06:07  Checking assertions in step 15..
+SBY 20:58:59 [sec-alu-ind_taskBMC_r] engine_0: ##   0:06:25  Checking assumptions in step 16..
+SBY 20:59:59 [sec-alu-ind_taskBMC_r] engine_0: ##   0:07:25  waiting for solver (1 minute)
+SBY 21:02:02 [sec-alu-ind_taskBMC_r] engine_0: ##   0:09:29  Checking assertions in step 16..
+SBY 21:02:22 [sec-alu-ind_taskBMC_r] engine_0: ##   0:09:48  Checking assumptions in step 17..
+SBY 21:02:46 [sec-alu-ind_taskBMC_r] engine_0: ##   0:10:12  Checking assertions in step 17..
+SBY 21:03:05 [sec-alu-ind_taskBMC_r] engine_0: ##   0:10:32  Checking assumptions in step 18..
+SBY 21:03:27 [sec-alu-ind_taskBMC_r] engine_0: ##   0:10:54  Checking assertions in step 18..
+SBY 21:03:46 [sec-alu-ind_taskBMC_r] engine_0: ##   0:11:13  Checking assumptions in step 19..
+SBY 21:04:46 [sec-alu-ind_taskBMC_r] engine_0: ##   0:12:13  waiting for solver (1 minute)
+SBY 21:06:05 [sec-alu-ind_taskBMC_r] engine_0: ##   0:13:31  Checking assertions in step 19..
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] engine_0: ##   0:13:52  Status: passed
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] engine_0: finished (returncode=0)
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] engine_0: Status returned by engine: pass
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] summary: Elapsed clock time [H:MM:SS (secs)]: 0:14:29 (869)
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] summary: Elapsed process time [H:MM:SS (secs)]: 0:15:16 (916)
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] summary: engine_0 (smtbmc boolector) returned pass
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] DONE (PASS, rc=0)

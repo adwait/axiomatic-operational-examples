@@ -1,0 +1,21 @@
+SBY 21:20:10 [sec-mem-ind_taskProve] Removing directory 'sec-mem-ind_taskProve'.
+SBY 21:20:10 [sec-mem-ind_taskProve] Copy 'mvscale_top_c1_mem.v' to 'sec-mem-ind_taskProve/src/mvscale_top_c1_mem.v'.
+SBY 21:20:10 [sec-mem-ind_taskProve] Copy 'formal-mem-ind.v' to 'sec-mem-ind_taskProve/src/formal-mem-ind.v'.
+SBY 21:20:10 [sec-mem-ind_taskProve] engine_0: abc pdr
+SBY 21:20:10 [sec-mem-ind_taskProve] nomem: starting process "cd sec-mem-ind_taskProve/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 21:20:50 [sec-mem-ind_taskProve] nomem: finished (returncode=0)
+SBY 21:20:50 [sec-mem-ind_taskProve] aig: starting process "cd sec-mem-ind_taskProve/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 21:21:33 [sec-mem-ind_taskProve] aig: finished (returncode=0)
+SBY 21:21:33 [sec-mem-ind_taskProve] engine_0: starting process "cd sec-mem-ind_taskProve; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Warning: The last 9 outputs are interpreted as constraints.
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Invariant F[26] : 685 clauses with 308 flops (out of 3353) (cex = 0, ave = 59.48)
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Verification of invariant with 685 clauses was successful.  Time =     0.11 sec
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Property proved.  Time =    54.69 sec
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Counter-example is not available.
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: finished (returncode=0)
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Status returned by engine: PASS
+SBY 21:22:28 [sec-mem-ind_taskProve] summary: Elapsed clock time [H:MM:SS (secs)]: 0:02:18 (138)
+SBY 21:22:28 [sec-mem-ind_taskProve] summary: Elapsed process time [H:MM:SS (secs)]: 0:02:18 (138)
+SBY 21:22:28 [sec-mem-ind_taskProve] summary: engine_0 (abc pdr) returned PASS
+SBY 21:22:28 [sec-mem-ind_taskProve] DONE (PASS, rc=0)

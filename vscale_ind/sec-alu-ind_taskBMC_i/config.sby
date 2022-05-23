@@ -1,0 +1,18 @@
+[options]
+
+mode bmc
+depth 20
+
+[engines]
+
+smtbmc boolector
+
+[script]
+
+read -formal mvscale_top_c1_nonmem-i.v
+prep -top vscale_sim_top
+
+[files]
+
+mvscale_top_c1_nonmem-i.v
+formal-alu-i-ind.v
