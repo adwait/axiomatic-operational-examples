@@ -1,0 +1,727 @@
+Running vscale_ind
+Moving into vscale_ind directory
+
+===========================
+Running PDR proof for R-type instructions
+time sby -f sec-alu-ind.sby taskProve_r
+SBY 20:50:10 [sec-alu-ind_taskProve_r] Removing directory 'sec-alu-ind_taskProve_r'.
+SBY 20:50:10 [sec-alu-ind_taskProve_r] Copy 'mvscale_top_c1_nonmem-r.v' to 'sec-alu-ind_taskProve_r/src/mvscale_top_c1_nonmem-r.v'.
+SBY 20:50:10 [sec-alu-ind_taskProve_r] Copy 'formal-alu-r-ind.v' to 'sec-alu-ind_taskProve_r/src/formal-alu-r-ind.v'.
+SBY 20:50:10 [sec-alu-ind_taskProve_r] engine_0: abc pdr
+SBY 20:50:10 [sec-alu-ind_taskProve_r] nomem: starting process "cd sec-alu-ind_taskProve_r/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 20:50:46 [sec-alu-ind_taskProve_r] nomem: finished (returncode=0)
+SBY 20:50:46 [sec-alu-ind_taskProve_r] aig: starting process "cd sec-alu-ind_taskProve_r/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:51:24 [sec-alu-ind_taskProve_r] aig: finished (returncode=0)
+SBY 20:51:24 [sec-alu-ind_taskProve_r] engine_0: starting process "cd sec-alu-ind_taskProve_r; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Warning: The last 9 outputs are interpreted as constraints.
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Invariant F[25] : 658 clauses with 307 flops (out of 3353) (cex = 0, ave = 49.82)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Verification of invariant with 658 clauses was successful.  Time =     0.08 sec
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Property proved.  Time =    31.33 sec
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Counter-example is not available.
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: finished (returncode=0)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] engine_0: Status returned by engine: PASS
+SBY 20:51:56 [sec-alu-ind_taskProve_r] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:45 (105)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:45 (105)
+SBY 20:51:56 [sec-alu-ind_taskProve_r] summary: engine_0 (abc pdr) returned PASS
+SBY 20:51:56 [sec-alu-ind_taskProve_r] DONE (PASS, rc=0)
+
+real    1m46.466s
+user    1m44.601s
+sys     0m1.563s
+===========================
+
+
+===========================
+Running BMC (d=20) proof for R-type instructions
+time sby -f sec-alu-ind.sby taskBMC_r
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] Removing directory 'sec-alu-ind_taskBMC_r'.
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] Copy 'mvscale_top_c1_nonmem-r.v' to 'sec-alu-ind_taskBMC_r/src/mvscale_top_c1_nonmem-r.v'.
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] Copy 'formal-alu-r-ind.v' to 'sec-alu-ind_taskBMC_r/src/formal-alu-r-ind.v'.
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] engine_0: smtbmc boolector
+SBY 20:51:57 [sec-alu-ind_taskBMC_r] base: starting process "cd sec-alu-ind_taskBMC_r/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:52:30 [sec-alu-ind_taskBMC_r] base: finished (returncode=0)
+SBY 20:52:30 [sec-alu-ind_taskBMC_r] smt2: starting process "cd sec-alu-ind_taskBMC_r/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:52:33 [sec-alu-ind_taskBMC_r] smt2: finished (returncode=0)
+SBY 20:52:33 [sec-alu-ind_taskBMC_r] engine_0: starting process "cd sec-alu-ind_taskBMC_r; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:52:33 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:00  Solver: boolector
+SBY 20:52:42 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:08  Checking assumptions in step 0..
+SBY 20:52:43 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:09  Checking assertions in step 0..
+SBY 20:52:51 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:17  Checking assumptions in step 1..
+SBY 20:52:52 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:18  Checking assertions in step 1..
+SBY 20:53:01 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:28  Checking assumptions in step 2..
+SBY 20:53:02 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:29  Checking assertions in step 2..
+SBY 20:53:13 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:40  Checking assumptions in step 3..
+SBY 20:53:15 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:41  Checking assertions in step 3..
+SBY 20:53:26 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:52  Checking assumptions in step 4..
+SBY 20:53:30 [sec-alu-ind_taskBMC_r] engine_0: ##   0:00:56  Checking assertions in step 4..
+SBY 20:53:39 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:06  Checking assumptions in step 5..
+SBY 20:53:44 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:10  Checking assertions in step 5..
+SBY 20:53:54 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:20  Checking assumptions in step 6..
+SBY 20:53:58 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:24  Checking assertions in step 6..
+SBY 20:54:09 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:35  Checking assumptions in step 7..
+SBY 20:54:18 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:44  Checking assertions in step 7..
+SBY 20:54:31 [sec-alu-ind_taskBMC_r] engine_0: ##   0:01:57  Checking assumptions in step 8..
+SBY 20:54:37 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:03  Checking assertions in step 8..
+SBY 20:54:48 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:15  Checking assumptions in step 9..
+SBY 20:55:01 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:27  Checking assertions in step 9..
+SBY 20:55:14 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:40  Checking assumptions in step 10..
+SBY 20:55:23 [sec-alu-ind_taskBMC_r] engine_0: ##   0:02:49  Checking assertions in step 10..
+SBY 20:55:36 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:02  Checking assumptions in step 11..
+SBY 20:55:47 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:13  Checking assertions in step 11..
+SBY 20:56:02 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:28  Checking assumptions in step 12..
+SBY 20:56:24 [sec-alu-ind_taskBMC_r] engine_0: ##   0:03:50  Checking assertions in step 12..
+SBY 20:56:42 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:09  Checking assumptions in step 13..
+SBY 20:56:56 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:22  Checking assertions in step 13..
+SBY 20:57:12 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:39  Checking assumptions in step 14..
+SBY 20:57:33 [sec-alu-ind_taskBMC_r] engine_0: ##   0:04:59  Checking assertions in step 14..
+SBY 20:57:55 [sec-alu-ind_taskBMC_r] engine_0: ##   0:05:22  Checking assumptions in step 15..
+SBY 20:58:41 [sec-alu-ind_taskBMC_r] engine_0: ##   0:06:07  Checking assertions in step 15..
+SBY 20:58:59 [sec-alu-ind_taskBMC_r] engine_0: ##   0:06:25  Checking assumptions in step 16..
+SBY 20:59:59 [sec-alu-ind_taskBMC_r] engine_0: ##   0:07:25  waiting for solver (1 minute)
+SBY 21:02:02 [sec-alu-ind_taskBMC_r] engine_0: ##   0:09:29  Checking assertions in step 16..
+SBY 21:02:22 [sec-alu-ind_taskBMC_r] engine_0: ##   0:09:48  Checking assumptions in step 17..
+SBY 21:02:46 [sec-alu-ind_taskBMC_r] engine_0: ##   0:10:12  Checking assertions in step 17..
+SBY 21:03:05 [sec-alu-ind_taskBMC_r] engine_0: ##   0:10:32  Checking assumptions in step 18..
+SBY 21:03:27 [sec-alu-ind_taskBMC_r] engine_0: ##   0:10:54  Checking assertions in step 18..
+SBY 21:03:46 [sec-alu-ind_taskBMC_r] engine_0: ##   0:11:13  Checking assumptions in step 19..
+SBY 21:04:46 [sec-alu-ind_taskBMC_r] engine_0: ##   0:12:13  waiting for solver (1 minute)
+SBY 21:06:05 [sec-alu-ind_taskBMC_r] engine_0: ##   0:13:31  Checking assertions in step 19..
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] engine_0: ##   0:13:52  Status: passed
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] engine_0: finished (returncode=0)
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] engine_0: Status returned by engine: pass
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] summary: Elapsed clock time [H:MM:SS (secs)]: 0:14:29 (869)
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] summary: Elapsed process time [H:MM:SS (secs)]: 0:15:16 (916)
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] summary: engine_0 (smtbmc boolector) returned pass
+SBY 21:06:26 [sec-alu-ind_taskBMC_r] DONE (PASS, rc=0)
+
+real    14m30.371s
+user    14m46.557s
+sys     0m31.112s
+===========================
+
+
+===========================
+Running PDR proof for I-type instructions
+time sby -f sec-alu-ind.sby taskProve_i
+SBY 21:06:27 [sec-alu-ind_taskProve_i] Removing directory 'sec-alu-ind_taskProve_i'.
+SBY 21:06:27 [sec-alu-ind_taskProve_i] Copy 'mvscale_top_c1_nonmem-i.v' to 'sec-alu-ind_taskProve_i/src/mvscale_top_c1_nonmem-i.v'.
+SBY 21:06:27 [sec-alu-ind_taskProve_i] Copy 'formal-alu-i-ind.v' to 'sec-alu-ind_taskProve_i/src/formal-alu-i-ind.v'.
+SBY 21:06:27 [sec-alu-ind_taskProve_i] engine_0: abc pdr
+SBY 21:06:27 [sec-alu-ind_taskProve_i] nomem: starting process "cd sec-alu-ind_taskProve_i/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 21:07:10 [sec-alu-ind_taskProve_i] nomem: finished (returncode=0)
+SBY 21:07:10 [sec-alu-ind_taskProve_i] aig: starting process "cd sec-alu-ind_taskProve_i/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 21:07:55 [sec-alu-ind_taskProve_i] aig: finished (returncode=0)
+SBY 21:07:55 [sec-alu-ind_taskProve_i] engine_0: starting process "cd sec-alu-ind_taskProve_i; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Warning: The last 9 outputs are interpreted as constraints.
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Invariant F[25] : 659 clauses with 308 flops (out of 3353) (cex = 0, ave = 48.93)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Verification of invariant with 659 clauses was successful.  Time =     0.11 sec
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Property proved.  Time =    42.19 sec
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Counter-example is not available.
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: finished (returncode=0)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] engine_0: Status returned by engine: PASS
+SBY 21:08:38 [sec-alu-ind_taskProve_i] summary: Elapsed clock time [H:MM:SS (secs)]: 0:02:10 (130)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] summary: Elapsed process time [H:MM:SS (secs)]: 0:02:10 (130)
+SBY 21:08:38 [sec-alu-ind_taskProve_i] summary: engine_0 (abc pdr) returned PASS
+SBY 21:08:38 [sec-alu-ind_taskProve_i] DONE (PASS, rc=0)
+
+real    2m11.742s
+user    2m9.670s
+sys     0m1.816s
+===========================
+
+
+===========================
+Running BMC (d=20) proof for I-type instructions
+time sby -f sec-alu-ind.sby taskBMC_i
+SBY 21:08:39 [sec-alu-ind_taskBMC_i] Removing directory 'sec-alu-ind_taskBMC_i'.
+SBY 21:08:39 [sec-alu-ind_taskBMC_i] Copy 'mvscale_top_c1_nonmem-i.v' to 'sec-alu-ind_taskBMC_i/src/mvscale_top_c1_nonmem-i.v'.
+SBY 21:08:39 [sec-alu-ind_taskBMC_i] Copy 'formal-alu-i-ind.v' to 'sec-alu-ind_taskBMC_i/src/formal-alu-i-ind.v'.
+SBY 21:08:39 [sec-alu-ind_taskBMC_i] engine_0: smtbmc boolector
+SBY 21:08:39 [sec-alu-ind_taskBMC_i] base: starting process "cd sec-alu-ind_taskBMC_i/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:09:16 [sec-alu-ind_taskBMC_i] base: finished (returncode=0)
+SBY 21:09:16 [sec-alu-ind_taskBMC_i] smt2: starting process "cd sec-alu-ind_taskBMC_i/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:09:19 [sec-alu-ind_taskBMC_i] smt2: finished (returncode=0)
+SBY 21:09:19 [sec-alu-ind_taskBMC_i] engine_0: starting process "cd sec-alu-ind_taskBMC_i; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:09:19 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:00  Solver: boolector
+SBY 21:09:29 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:09  Checking assumptions in step 0..
+SBY 21:09:29 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:09  Checking assertions in step 0..
+SBY 21:09:37 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:17  Checking assumptions in step 1..
+SBY 21:09:37 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:18  Checking assertions in step 1..
+SBY 21:09:45 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:25  Checking assumptions in step 2..
+SBY 21:09:46 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:26  Checking assertions in step 2..
+SBY 21:09:56 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:36  Checking assumptions in step 3..
+SBY 21:09:57 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:38  Checking assertions in step 3..
+SBY 21:10:07 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:47  Checking assumptions in step 4..
+SBY 21:10:10 [sec-alu-ind_taskBMC_i] engine_0: ##   0:00:50  Checking assertions in step 4..
+SBY 21:10:21 [sec-alu-ind_taskBMC_i] engine_0: ##   0:01:01  Checking assumptions in step 5..
+SBY 21:10:28 [sec-alu-ind_taskBMC_i] engine_0: ##   0:01:08  Checking assertions in step 5..
+SBY 21:10:42 [sec-alu-ind_taskBMC_i] engine_0: ##   0:01:23  Checking assumptions in step 6..
+SBY 21:10:49 [sec-alu-ind_taskBMC_i] engine_0: ##   0:01:29  Checking assertions in step 6..
+SBY 21:11:02 [sec-alu-ind_taskBMC_i] engine_0: ##   0:01:42  Checking assumptions in step 7..
+SBY 21:11:11 [sec-alu-ind_taskBMC_i] engine_0: ##   0:01:51  Checking assertions in step 7..
+SBY 21:11:27 [sec-alu-ind_taskBMC_i] engine_0: ##   0:02:07  Checking assumptions in step 8..
+SBY 21:11:34 [sec-alu-ind_taskBMC_i] engine_0: ##   0:02:14  Checking assertions in step 8..
+SBY 21:11:51 [sec-alu-ind_taskBMC_i] engine_0: ##   0:02:31  Checking assumptions in step 9..
+SBY 21:12:06 [sec-alu-ind_taskBMC_i] engine_0: ##   0:02:46  Checking assertions in step 9..
+SBY 21:12:22 [sec-alu-ind_taskBMC_i] engine_0: ##   0:03:02  Checking assumptions in step 10..
+SBY 21:12:33 [sec-alu-ind_taskBMC_i] engine_0: ##   0:03:13  Checking assertions in step 10..
+SBY 21:12:48 [sec-alu-ind_taskBMC_i] engine_0: ##   0:03:28  Checking assumptions in step 11..
+SBY 21:13:38 [sec-alu-ind_taskBMC_i] engine_0: ##   0:04:19  Checking assertions in step 11..
+SBY 21:13:56 [sec-alu-ind_taskBMC_i] engine_0: ##   0:04:36  Checking assumptions in step 12..
+SBY 21:14:14 [sec-alu-ind_taskBMC_i] engine_0: ##   0:04:54  Checking assertions in step 12..
+SBY 21:14:34 [sec-alu-ind_taskBMC_i] engine_0: ##   0:05:14  Checking assumptions in step 13..
+SBY 21:14:50 [sec-alu-ind_taskBMC_i] engine_0: ##   0:05:31  Checking assertions in step 13..
+SBY 21:15:12 [sec-alu-ind_taskBMC_i] engine_0: ##   0:05:52  Checking assumptions in step 14..
+SBY 21:15:40 [sec-alu-ind_taskBMC_i] engine_0: ##   0:06:21  Checking assertions in step 14..
+SBY 21:15:59 [sec-alu-ind_taskBMC_i] engine_0: ##   0:06:39  Checking assumptions in step 15..
+SBY 21:16:21 [sec-alu-ind_taskBMC_i] engine_0: ##   0:07:01  Checking assertions in step 15..
+SBY 21:16:46 [sec-alu-ind_taskBMC_i] engine_0: ##   0:07:26  Checking assumptions in step 16..
+SBY 21:17:07 [sec-alu-ind_taskBMC_i] engine_0: ##   0:07:47  Checking assertions in step 16..
+SBY 21:17:31 [sec-alu-ind_taskBMC_i] engine_0: ##   0:08:11  Checking assumptions in step 17..
+SBY 21:18:07 [sec-alu-ind_taskBMC_i] engine_0: ##   0:08:47  Checking assertions in step 17..
+SBY 21:18:31 [sec-alu-ind_taskBMC_i] engine_0: ##   0:09:11  Checking assumptions in step 18..
+SBY 21:18:59 [sec-alu-ind_taskBMC_i] engine_0: ##   0:09:40  Checking assertions in step 18..
+SBY 21:19:21 [sec-alu-ind_taskBMC_i] engine_0: ##   0:10:01  Checking assumptions in step 19..
+SBY 21:19:47 [sec-alu-ind_taskBMC_i] engine_0: ##   0:10:27  Checking assertions in step 19..
+SBY 21:20:09 [sec-alu-ind_taskBMC_i] engine_0: ##   0:10:49  Status: passed
+SBY 21:20:10 [sec-alu-ind_taskBMC_i] engine_0: finished (returncode=0)
+SBY 21:20:10 [sec-alu-ind_taskBMC_i] engine_0: Status returned by engine: pass
+SBY 21:20:10 [sec-alu-ind_taskBMC_i] summary: Elapsed clock time [H:MM:SS (secs)]: 0:11:31 (691)
+SBY 21:20:10 [sec-alu-ind_taskBMC_i] summary: Elapsed process time [H:MM:SS (secs)]: 0:12:21 (741)
+SBY 21:20:10 [sec-alu-ind_taskBMC_i] summary: engine_0 (smtbmc boolector) returned pass
+SBY 21:20:10 [sec-alu-ind_taskBMC_i] DONE (PASS, rc=0)
+
+real    11m31.728s
+user    11m52.519s
+sys     0m29.409s
+===========================
+
+
+===========================
+Running PDR proof for Load+Store instructions
+time sby -f sec-mem-ind.sby taskProve
+SBY 21:20:10 [sec-mem-ind_taskProve] Removing directory 'sec-mem-ind_taskProve'.
+SBY 21:20:10 [sec-mem-ind_taskProve] Copy 'mvscale_top_c1_mem.v' to 'sec-mem-ind_taskProve/src/mvscale_top_c1_mem.v'.
+SBY 21:20:10 [sec-mem-ind_taskProve] Copy 'formal-mem-ind.v' to 'sec-mem-ind_taskProve/src/formal-mem-ind.v'.
+SBY 21:20:10 [sec-mem-ind_taskProve] engine_0: abc pdr
+SBY 21:20:10 [sec-mem-ind_taskProve] nomem: starting process "cd sec-mem-ind_taskProve/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 21:20:50 [sec-mem-ind_taskProve] nomem: finished (returncode=0)
+SBY 21:20:50 [sec-mem-ind_taskProve] aig: starting process "cd sec-mem-ind_taskProve/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 21:21:33 [sec-mem-ind_taskProve] aig: finished (returncode=0)
+SBY 21:21:33 [sec-mem-ind_taskProve] engine_0: starting process "cd sec-mem-ind_taskProve; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Warning: The last 9 outputs are interpreted as constraints.
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Invariant F[26] : 685 clauses with 308 flops (out of 3353) (cex = 0, ave = 59.48)
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Verification of invariant with 685 clauses was successful.  Time =     0.11 sec
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Property proved.  Time =    54.69 sec
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Counter-example is not available.
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: finished (returncode=0)
+SBY 21:22:28 [sec-mem-ind_taskProve] engine_0: Status returned by engine: PASS
+SBY 21:22:28 [sec-mem-ind_taskProve] summary: Elapsed clock time [H:MM:SS (secs)]: 0:02:18 (138)
+SBY 21:22:28 [sec-mem-ind_taskProve] summary: Elapsed process time [H:MM:SS (secs)]: 0:02:18 (138)
+SBY 21:22:28 [sec-mem-ind_taskProve] summary: engine_0 (abc pdr) returned PASS
+SBY 21:22:28 [sec-mem-ind_taskProve] DONE (PASS, rc=0)
+
+real    2m18.822s
+user    2m16.753s
+sys     0m1.828s
+===========================
+
+
+===========================
+Running BMC (d=20) proof for Load+Store instructions
+time sby -f sec-mem-ind.sby taskBMC
+SBY 21:22:29 [sec-mem-ind_taskBMC] Removing directory 'sec-mem-ind_taskBMC'.
+SBY 21:22:29 [sec-mem-ind_taskBMC] Copy 'mvscale_top_c1_mem.v' to 'sec-mem-ind_taskBMC/src/mvscale_top_c1_mem.v'.
+SBY 21:22:29 [sec-mem-ind_taskBMC] Copy 'formal-mem-ind.v' to 'sec-mem-ind_taskBMC/src/formal-mem-ind.v'.
+SBY 21:22:29 [sec-mem-ind_taskBMC] engine_0: smtbmc boolector
+SBY 21:22:29 [sec-mem-ind_taskBMC] base: starting process "cd sec-mem-ind_taskBMC/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:23:07 [sec-mem-ind_taskBMC] base: finished (returncode=0)
+SBY 21:23:07 [sec-mem-ind_taskBMC] smt2: starting process "cd sec-mem-ind_taskBMC/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:23:10 [sec-mem-ind_taskBMC] smt2: finished (returncode=0)
+SBY 21:23:10 [sec-mem-ind_taskBMC] engine_0: starting process "cd sec-mem-ind_taskBMC; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:23:10 [sec-mem-ind_taskBMC] engine_0: ##   0:00:00  Solver: boolector
+SBY 21:23:20 [sec-mem-ind_taskBMC] engine_0: ##   0:00:09  Checking assumptions in step 0..
+SBY 21:23:20 [sec-mem-ind_taskBMC] engine_0: ##   0:00:10  Checking assertions in step 0..
+SBY 21:23:29 [sec-mem-ind_taskBMC] engine_0: ##   0:00:18  Checking assumptions in step 1..
+SBY 21:23:30 [sec-mem-ind_taskBMC] engine_0: ##   0:00:19  Checking assertions in step 1..
+SBY 21:23:39 [sec-mem-ind_taskBMC] engine_0: ##   0:00:28  Checking assumptions in step 2..
+SBY 21:23:40 [sec-mem-ind_taskBMC] engine_0: ##   0:00:29  Checking assertions in step 2..
+SBY 21:23:49 [sec-mem-ind_taskBMC] engine_0: ##   0:00:38  Checking assumptions in step 3..
+SBY 21:23:50 [sec-mem-ind_taskBMC] engine_0: ##   0:00:40  Checking assertions in step 3..
+SBY 21:24:01 [sec-mem-ind_taskBMC] engine_0: ##   0:00:50  Checking assumptions in step 4..
+SBY 21:24:04 [sec-mem-ind_taskBMC] engine_0: ##   0:00:53  Checking assertions in step 4..
+SBY 21:24:14 [sec-mem-ind_taskBMC] engine_0: ##   0:01:04  Checking assumptions in step 5..
+SBY 21:24:17 [sec-mem-ind_taskBMC] engine_0: ##   0:01:06  Checking assertions in step 5..
+SBY 21:24:30 [sec-mem-ind_taskBMC] engine_0: ##   0:01:19  Checking assumptions in step 6..
+SBY 21:24:33 [sec-mem-ind_taskBMC] engine_0: ##   0:01:22  Checking assertions in step 6..
+SBY 21:24:45 [sec-mem-ind_taskBMC] engine_0: ##   0:01:34  Checking assumptions in step 7..
+SBY 21:24:52 [sec-mem-ind_taskBMC] engine_0: ##   0:01:42  Checking assertions in step 7..
+SBY 21:25:05 [sec-mem-ind_taskBMC] engine_0: ##   0:01:54  Checking assumptions in step 8..
+SBY 21:25:10 [sec-mem-ind_taskBMC] engine_0: ##   0:02:00  Checking assertions in step 8..
+SBY 21:25:24 [sec-mem-ind_taskBMC] engine_0: ##   0:02:14  Checking assumptions in step 9..
+SBY 21:25:37 [sec-mem-ind_taskBMC] engine_0: ##   0:02:26  Checking assertions in step 9..
+SBY 21:25:55 [sec-mem-ind_taskBMC] engine_0: ##   0:02:44  Checking assumptions in step 10..
+SBY 21:26:02 [sec-mem-ind_taskBMC] engine_0: ##   0:02:51  Checking assertions in step 10..
+SBY 21:26:23 [sec-mem-ind_taskBMC] engine_0: ##   0:03:12  Checking assumptions in step 11..
+SBY 21:26:31 [sec-mem-ind_taskBMC] engine_0: ##   0:03:20  Checking assertions in step 11..
+SBY 21:26:51 [sec-mem-ind_taskBMC] engine_0: ##   0:03:40  Checking assumptions in step 12..
+SBY 21:27:02 [sec-mem-ind_taskBMC] engine_0: ##   0:03:51  Checking assertions in step 12..
+SBY 21:27:23 [sec-mem-ind_taskBMC] engine_0: ##   0:04:12  Checking assumptions in step 13..
+SBY 21:27:42 [sec-mem-ind_taskBMC] engine_0: ##   0:04:32  Checking assertions in step 13..
+SBY 21:28:08 [sec-mem-ind_taskBMC] engine_0: ##   0:04:57  Checking assumptions in step 14..
+SBY 21:28:49 [sec-mem-ind_taskBMC] engine_0: ##   0:05:38  Checking assertions in step 14..
+SBY 21:29:18 [sec-mem-ind_taskBMC] engine_0: ##   0:06:08  Checking assumptions in step 15..
+SBY 21:29:34 [sec-mem-ind_taskBMC] engine_0: ##   0:06:24  Checking assertions in step 15..
+SBY 21:30:13 [sec-mem-ind_taskBMC] engine_0: ##   0:07:03  Checking assumptions in step 16..
+SBY 21:30:42 [sec-mem-ind_taskBMC] engine_0: ##   0:07:31  Checking assertions in step 16..
+SBY 21:31:54 [sec-mem-ind_taskBMC] engine_0: ##   0:08:43  Checking assumptions in step 17..
+SBY 21:32:40 [sec-mem-ind_taskBMC] engine_0: ##   0:09:29  Checking assertions in step 17..
+SBY 21:33:39 [sec-mem-ind_taskBMC] engine_0: ##   0:10:28  Checking assumptions in step 18..
+SBY 21:33:58 [sec-mem-ind_taskBMC] engine_0: ##   0:10:47  Checking assertions in step 18..
+SBY 21:34:51 [sec-mem-ind_taskBMC] engine_0: ##   0:11:40  Checking assumptions in step 19..
+SBY 21:35:19 [sec-mem-ind_taskBMC] engine_0: ##   0:12:08  Checking assertions in step 19..
+SBY 21:36:04 [sec-mem-ind_taskBMC] engine_0: ##   0:12:53  Status: passed
+SBY 21:36:04 [sec-mem-ind_taskBMC] engine_0: finished (returncode=0)
+SBY 21:36:04 [sec-mem-ind_taskBMC] engine_0: Status returned by engine: pass
+SBY 21:36:04 [sec-mem-ind_taskBMC] summary: Elapsed clock time [H:MM:SS (secs)]: 0:13:35 (815)
+SBY 21:36:04 [sec-mem-ind_taskBMC] summary: Elapsed process time [H:MM:SS (secs)]: 0:14:28 (868)
+SBY 21:36:04 [sec-mem-ind_taskBMC] summary: engine_0 (smtbmc boolector) returned pass
+SBY 21:36:04 [sec-mem-ind_taskBMC] DONE (PASS, rc=0)
+
+real    13m35.932s
+user    13m58.695s
+sys     0m30.042s
+===========================
+
+Completed example
+
+
+
+===========================
+===========================
+
+
+Running vscale_mem
+Moving into vscale_mem directory
+
+===========================
+Running BMC proof for ReadValues with 4 instructions
+time sby -f sec-mem-2.sby
+SBY 23:30:44 [sec-mem-2] Removing directory 'sec-mem-2'.
+SBY 23:30:44 [sec-mem-2] Copy 'mvscale_top_c2_mem-2.v' to 'sec-mem-2/src/mvscale_top_c2_mem-2.v'.
+SBY 23:30:44 [sec-mem-2] Copy 'formal-mem-2.v' to 'sec-mem-2/src/formal-mem-2.v'.
+SBY 23:30:44 [sec-mem-2] engine_0: smtbmc boolector
+SBY 23:30:44 [sec-mem-2] base: starting process "cd sec-mem-2/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:30:44 [sec-mem-2] base: Warning: Replacing memory \events with list of registers. See formal-mem-2.v:173, formal-mem-2.v:171, formal-mem-2.v:77
+SBY 23:31:00 [sec-mem-2] base: finished (returncode=0)
+SBY 23:31:00 [sec-mem-2] smt2: starting process "cd sec-mem-2/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:31:01 [sec-mem-2] smt2: finished (returncode=0)
+SBY 23:31:01 [sec-mem-2] engine_0: starting process "cd sec-mem-2; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:31:01 [sec-mem-2] engine_0: ##   0:00:00  Solver: boolector
+SBY 23:31:06 [sec-mem-2] engine_0: ##   0:00:04  Checking assumptions in step 0..
+SBY 23:31:06 [sec-mem-2] engine_0: ##   0:00:05  Checking assertions in step 0..
+SBY 23:31:12 [sec-mem-2] engine_0: ##   0:00:11  Checking assumptions in step 1..
+SBY 23:31:13 [sec-mem-2] engine_0: ##   0:00:11  Checking assertions in step 1..
+SBY 23:31:20 [sec-mem-2] engine_0: ##   0:00:18  Checking assumptions in step 2..
+SBY 23:31:20 [sec-mem-2] engine_0: ##   0:00:19  Checking assertions in step 2..
+SBY 23:31:27 [sec-mem-2] engine_0: ##   0:00:25  Checking assumptions in step 3..
+SBY 23:31:27 [sec-mem-2] engine_0: ##   0:00:26  Checking assertions in step 3..
+SBY 23:31:35 [sec-mem-2] engine_0: ##   0:00:33  Checking assumptions in step 4..
+SBY 23:31:35 [sec-mem-2] engine_0: ##   0:00:34  Checking assertions in step 4..
+SBY 23:31:43 [sec-mem-2] engine_0: ##   0:00:42  Checking assumptions in step 5..
+SBY 23:31:44 [sec-mem-2] engine_0: ##   0:00:42  Checking assertions in step 5..
+SBY 23:31:52 [sec-mem-2] engine_0: ##   0:00:51  Checking assumptions in step 6..
+SBY 23:31:54 [sec-mem-2] engine_0: ##   0:00:53  Checking assertions in step 6..
+SBY 23:32:02 [sec-mem-2] engine_0: ##   0:01:01  Checking assumptions in step 7..
+SBY 23:32:04 [sec-mem-2] engine_0: ##   0:01:02  Checking assertions in step 7..
+SBY 23:32:12 [sec-mem-2] engine_0: ##   0:01:11  Checking assumptions in step 8..
+SBY 23:32:16 [sec-mem-2] engine_0: ##   0:01:14  Checking assertions in step 8..
+SBY 23:32:25 [sec-mem-2] engine_0: ##   0:01:23  Checking assumptions in step 9..
+SBY 23:32:30 [sec-mem-2] engine_0: ##   0:01:29  Checking assertions in step 9..
+SBY 23:32:41 [sec-mem-2] engine_0: ##   0:01:39  Checking assumptions in step 10..
+SBY 23:32:50 [sec-mem-2] engine_0: ##   0:01:49  Checking assertions in step 10..
+SBY 23:33:06 [sec-mem-2] engine_0: ##   0:02:04  Checking assumptions in step 11..
+SBY 23:33:25 [sec-mem-2] engine_0: ##   0:02:24  Checking assertions in step 11..
+SBY 23:33:53 [sec-mem-2] engine_0: ##   0:02:51  Status: passed
+SBY 23:33:53 [sec-mem-2] engine_0: finished (returncode=0)
+SBY 23:33:53 [sec-mem-2] engine_0: Status returned by engine: pass
+SBY 23:33:53 [sec-mem-2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:03:09 (189)
+SBY 23:33:53 [sec-mem-2] summary: Elapsed process time [H:MM:SS (secs)]: 0:03:31 (211)
+SBY 23:33:53 [sec-mem-2] summary: engine_0 (smtbmc boolector) returned pass
+SBY 23:33:53 [sec-mem-2] DONE (PASS, rc=0)
+
+real    3m10.215s
+user    3m29.104s
+sys     0m16.213s
+===========================
+
+
+===========================
+Running BMC proof for ReadValues with 6 instructions
+time sby -f sec-mem-3.sby
+SBY 22:33:47 [sec-mem-3] Removing directory 'sec-mem-3'.
+SBY 22:33:47 [sec-mem-3] Copy 'mvscale_top_c2_mem.v' to 'sec-mem-3/src/mvscale_top_c2_mem.v'.
+SBY 22:33:47 [sec-mem-3] Copy 'formal-mem-3.v' to 'sec-mem-3/src/formal-mem-3.v'.
+SBY 22:33:47 [sec-mem-3] engine_0: smtbmc boolector
+SBY 22:33:47 [sec-mem-3] base: starting process "cd sec-mem-3/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 22:33:47 [sec-mem-3] base: Warning: Replacing memory \events with list of registers. See formal-mem-3.v:187, formal-mem-3.v:185, formal-mem-3.v:79
+SBY 22:34:04 [sec-mem-3] base: finished (returncode=0)
+SBY 22:34:04 [sec-mem-3] smt2: starting process "cd sec-mem-3/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 22:34:05 [sec-mem-3] smt2: finished (returncode=0)
+SBY 22:34:05 [sec-mem-3] engine_0: starting process "cd sec-mem-3; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 16  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 22:34:05 [sec-mem-3] engine_0: ##   0:00:00  Solver: boolector
+SBY 22:34:10 [sec-mem-3] engine_0: ##   0:00:04  Checking assumptions in step 0..
+SBY 22:34:10 [sec-mem-3] engine_0: ##   0:00:05  Checking assertions in step 0..
+SBY 22:34:16 [sec-mem-3] engine_0: ##   0:00:10  Checking assumptions in step 1..
+SBY 22:34:17 [sec-mem-3] engine_0: ##   0:00:11  Checking assertions in step 1..
+SBY 22:34:22 [sec-mem-3] engine_0: ##   0:00:17  Checking assumptions in step 2..
+SBY 22:34:23 [sec-mem-3] engine_0: ##   0:00:17  Checking assertions in step 2..
+SBY 22:34:29 [sec-mem-3] engine_0: ##   0:00:23  Checking assumptions in step 3..
+SBY 22:34:29 [sec-mem-3] engine_0: ##   0:00:24  Checking assertions in step 3..
+SBY 22:34:36 [sec-mem-3] engine_0: ##   0:00:30  Checking assumptions in step 4..
+SBY 22:34:36 [sec-mem-3] engine_0: ##   0:00:30  Checking assertions in step 4..
+SBY 22:34:43 [sec-mem-3] engine_0: ##   0:00:37  Checking assumptions in step 5..
+SBY 22:34:43 [sec-mem-3] engine_0: ##   0:00:37  Checking assertions in step 5..
+SBY 22:34:50 [sec-mem-3] engine_0: ##   0:00:45  Checking assumptions in step 6..
+SBY 22:34:52 [sec-mem-3] engine_0: ##   0:00:47  Checking assertions in step 6..
+SBY 22:35:00 [sec-mem-3] engine_0: ##   0:00:54  Checking assumptions in step 7..
+SBY 22:35:02 [sec-mem-3] engine_0: ##   0:00:56  Checking assertions in step 7..
+SBY 22:35:10 [sec-mem-3] engine_0: ##   0:01:04  Checking assumptions in step 8..
+SBY 22:35:13 [sec-mem-3] engine_0: ##   0:01:08  Checking assertions in step 8..
+SBY 22:35:22 [sec-mem-3] engine_0: ##   0:01:16  Checking assumptions in step 9..
+SBY 22:35:30 [sec-mem-3] engine_0: ##   0:01:24  Checking assertions in step 9..
+SBY 22:35:47 [sec-mem-3] engine_0: ##   0:01:41  Checking assumptions in step 10..
+SBY 22:35:59 [sec-mem-3] engine_0: ##   0:01:53  Checking assertions in step 10..
+SBY 22:36:16 [sec-mem-3] engine_0: ##   0:02:10  Checking assumptions in step 11..
+SBY 22:36:35 [sec-mem-3] engine_0: ##   0:02:30  Checking assertions in step 11..
+SBY 22:37:17 [sec-mem-3] engine_0: ##   0:03:11  Checking assumptions in step 12..
+SBY 22:37:41 [sec-mem-3] engine_0: ##   0:03:35  Checking assertions in step 12..
+SBY 22:38:44 [sec-mem-3] engine_0: ##   0:04:38  waiting for solver (1 minute)
+SBY 22:39:08 [sec-mem-3] engine_0: ##   0:05:02  Checking assumptions in step 13..
+SBY 22:39:37 [sec-mem-3] engine_0: ##   0:05:32  Checking assertions in step 13..
+SBY 22:40:41 [sec-mem-3] engine_0: ##   0:06:35  waiting for solver (1 minute)
+SBY 22:41:55 [sec-mem-3] engine_0: ##   0:07:49  Checking assumptions in step 14..
+SBY 22:42:20 [sec-mem-3] engine_0: ##   0:08:14  Checking assertions in step 14..
+SBY 22:43:23 [sec-mem-3] engine_0: ##   0:09:18  waiting for solver (1 minute)
+SBY 22:45:30 [sec-mem-3] engine_0: ##   0:11:24  Checking assumptions in step 15..
+SBY 22:46:04 [sec-mem-3] engine_0: ##   0:11:58  Checking assertions in step 15..
+SBY 22:47:07 [sec-mem-3] engine_0: ##   0:13:02  waiting for solver (1 minute)
+SBY 22:49:08 [sec-mem-3] engine_0: ##   0:15:02  Status: passed
+SBY 22:49:08 [sec-mem-3] engine_0: finished (returncode=0)
+SBY 22:49:08 [sec-mem-3] engine_0: Status returned by engine: pass
+SBY 22:49:08 [sec-mem-3] summary: Elapsed clock time [H:MM:SS (secs)]: 0:15:21 (921)
+SBY 22:49:08 [sec-mem-3] summary: Elapsed process time [H:MM:SS (secs)]: 0:15:49 (949)
+SBY 22:49:08 [sec-mem-3] summary: engine_0 (smtbmc boolector) returned pass
+SBY 22:49:08 [sec-mem-3] DONE (PASS, rc=0)
+
+real    15m48.215s
+user    16m13.884s
+sys     0m27.213s
+===========================
+
+
+===========================
+Running BMC proof for ReadValues with 8 instructions
+time sby -f sec-mem-4.sby
+SBY 23:12:49 [sec-mem-4] Removing directory 'sec-mem-4'.
+SBY 23:12:49 [sec-mem-4] Copy 'mvscale_top_c2_mem.v' to 'sec-mem-4/src/mvscale_top_c2_mem.v'.
+SBY 23:12:49 [sec-mem-4] Copy 'formal-mem.v' to 'sec-mem-4/src/formal-mem.v'.
+SBY 23:12:49 [sec-mem-4] engine_0: smtbmc boolector
+SBY 23:12:49 [sec-mem-4] base: starting process "cd sec-mem-4/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:12:50 [sec-mem-4] base: Warning: Replacing memory \events with list of registers. See formal-mem.v:195, formal-mem.v:193, formal-mem.v:79
+SBY 23:13:09 [sec-mem-4] base: finished (returncode=0)
+SBY 23:13:09 [sec-mem-4] smt2: starting process "cd sec-mem-4/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:13:10 [sec-mem-4] smt2: finished (returncode=0)
+SBY 23:13:10 [sec-mem-4] engine_0: starting process "cd sec-mem-4; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:13:10 [sec-mem-4] engine_0: ##   0:00:00  Solver: boolector
+SBY 23:13:15 [sec-mem-4] engine_0: ##   0:00:04  Checking assumptions in step 0..
+SBY 23:13:15 [sec-mem-4] engine_0: ##   0:00:05  Checking assertions in step 0..
+SBY 23:13:21 [sec-mem-4] engine_0: ##   0:00:10  Checking assumptions in step 1..
+SBY 23:13:21 [sec-mem-4] engine_0: ##   0:00:11  Checking assertions in step 1..
+SBY 23:13:27 [sec-mem-4] engine_0: ##   0:00:17  Checking assumptions in step 2..
+SBY 23:13:28 [sec-mem-4] engine_0: ##   0:00:17  Checking assertions in step 2..
+SBY 23:13:34 [sec-mem-4] engine_0: ##   0:00:23  Checking assumptions in step 3..
+SBY 23:13:35 [sec-mem-4] engine_0: ##   0:00:24  Checking assertions in step 3..
+SBY 23:13:41 [sec-mem-4] engine_0: ##   0:00:31  Checking assumptions in step 4..
+SBY 23:13:42 [sec-mem-4] engine_0: ##   0:00:31  Checking assertions in step 4..
+SBY 23:13:48 [sec-mem-4] engine_0: ##   0:00:38  Checking assumptions in step 5..
+SBY 23:13:49 [sec-mem-4] engine_0: ##   0:00:38  Checking assertions in step 5..
+SBY 23:13:56 [sec-mem-4] engine_0: ##   0:00:45  Checking assumptions in step 6..
+SBY 23:13:58 [sec-mem-4] engine_0: ##   0:00:47  Checking assertions in step 6..
+SBY 23:14:05 [sec-mem-4] engine_0: ##   0:00:55  Checking assumptions in step 7..
+SBY 23:14:07 [sec-mem-4] engine_0: ##   0:00:56  Checking assertions in step 7..
+SBY 23:14:16 [sec-mem-4] engine_0: ##   0:01:05  Checking assumptions in step 8..
+SBY 23:14:21 [sec-mem-4] engine_0: ##   0:01:11  Checking assertions in step 8..
+SBY 23:14:30 [sec-mem-4] engine_0: ##   0:01:19  Checking assumptions in step 9..
+SBY 23:14:39 [sec-mem-4] engine_0: ##   0:01:29  Checking assertions in step 9..
+SBY 23:15:01 [sec-mem-4] engine_0: ##   0:01:50  Checking assumptions in step 10..
+SBY 23:15:14 [sec-mem-4] engine_0: ##   0:02:04  Checking assertions in step 10..
+SBY 23:15:33 [sec-mem-4] engine_0: ##   0:02:22  Checking assumptions in step 11..
+SBY 23:15:55 [sec-mem-4] engine_0: ##   0:02:45  Checking assertions in step 11..
+SBY 23:16:48 [sec-mem-4] engine_0: ##   0:03:37  Checking assumptions in step 12..
+SBY 23:17:07 [sec-mem-4] engine_0: ##   0:03:57  Checking assertions in step 12..
+SBY 23:18:11 [sec-mem-4] engine_0: ##   0:05:00  waiting for solver (1 minute)
+SBY 23:18:16 [sec-mem-4] engine_0: ##   0:05:05  Checking assumptions in step 13..
+SBY 23:18:59 [sec-mem-4] engine_0: ##   0:05:48  Checking assertions in step 13..
+SBY 23:20:03 [sec-mem-4] engine_0: ##   0:06:52  waiting for solver (1 minute)
+SBY 23:21:26 [sec-mem-4] engine_0: ##   0:08:15  Checking assumptions in step 14..
+SBY 23:22:26 [sec-mem-4] engine_0: ##   0:09:15  waiting for solver (1 minute)
+SBY 23:22:52 [sec-mem-4] engine_0: ##   0:09:41  Checking assertions in step 14..
+SBY 23:23:56 [sec-mem-4] engine_0: ##   0:10:45  waiting for solver (1 minute)
+SBY 23:25:46 [sec-mem-4] engine_0: ##   0:12:36  Checking assumptions in step 15..
+SBY 23:26:46 [sec-mem-4] engine_0: ##   0:13:36  waiting for solver (1 minute)
+SBY 23:28:01 [sec-mem-4] engine_0: ##   0:14:51  Checking assertions in step 15..
+SBY 23:29:05 [sec-mem-4] engine_0: ##   0:15:55  waiting for solver (1 minute)
+SBY 23:32:11 [sec-mem-4] engine_0: ##   0:19:01  Checking assumptions in step 16..
+SBY 23:33:11 [sec-mem-4] engine_0: ##   0:20:01  waiting for solver (1 minute)
+SBY 23:34:34 [sec-mem-4] engine_0: ##   0:21:24  Checking assertions in step 16..
+SBY 23:35:38 [sec-mem-4] engine_0: ##   0:22:28  waiting for solver (1 minute)
+SBY 23:39:38 [sec-mem-4] engine_0: ##   0:26:28  waiting for solver (5 minutes)
+SBY 23:42:25 [sec-mem-4] engine_0: ##   0:29:14  Checking assumptions in step 17..
+SBY 23:43:25 [sec-mem-4] engine_0: ##   0:30:14  waiting for solver (1 minute)
+SBY 23:45:54 [sec-mem-4] engine_0: ##   0:32:43  Checking assertions in step 17..
+SBY 23:46:59 [sec-mem-4] engine_0: ##   0:33:48  waiting for solver (1 minute)
+SBY 23:50:59 [sec-mem-4] engine_0: ##   0:37:48  waiting for solver (5 minutes)
+SBY 23:55:59 [sec-mem-4] engine_0: ##   0:42:48  waiting for solver (10 minutes)
+SBY 23:56:15 [sec-mem-4] engine_0: ##   0:43:04  Checking assumptions in step 18..
+SBY 23:57:15 [sec-mem-4] engine_0: ##   0:44:04  waiting for solver (1 minute)
+SBY  0:01:08 [sec-mem-4] engine_0: ##   0:47:58  Checking assertions in step 18..
+SBY  0:02:13 [sec-mem-4] engine_0: ##   0:49:03  waiting for solver (1 minute)
+SBY  0:06:13 [sec-mem-4] engine_0: ##   0:53:03  waiting for solver (5 minutes)
+SBY  0:30:44 [sec-mem-4] engine_0: ##   1:17:34  waiting for solver (10 minutes)
+SBY  0:34:01 [sec-mem-4] engine_0: ##   1:20:51  Checking assumptions in step 19..
+SBY  0:35:01 [sec-mem-4] engine_0: ##   1:21:51  waiting for solver (1 minute)
+SBY  0:37:28 [sec-mem-4] engine_0: ##   1:24:18  Checking assertions in step 19..
+SBY  0:38:33 [sec-mem-4] engine_0: ##   1:25:23  waiting for solver (1 minute)
+SBY  0:42:33 [sec-mem-4] engine_0: ##   1:29:23  waiting for solver (5 minutes)
+SBY  0:47:33 [sec-mem-4] engine_0: ##   1:34:23  waiting for solver (10 minutes)
+SBY  0:52:33 [sec-mem-4] engine_0: ##   1:39:23  waiting for solver (15 minutes)
+SBY  1:07:33 [sec-mem-4] engine_0: ##   1:54:23  waiting for solver (30 minutes)
+SBY  1:11:08 [sec-mem-4] engine_0: ##   1:57:57  Status: passed
+SBY  1:11:08 [sec-mem-4] engine_0: finished (returncode=0)
+SBY  1:11:08 [sec-mem-4] engine_0: Status returned by engine: pass
+SBY  1:11:08 [sec-mem-4] summary: Elapsed clock time [H:MM:SS (secs)]: 1:58:18 (7098)
+SBY  1:11:08 [sec-mem-4] summary: Elapsed process time [H:MM:SS (secs)]: 1:58:52 (7132)
+SBY  1:11:08 [sec-mem-4] summary: engine_0 (smtbmc boolector) returned pass
+SBY  1:11:08 [sec-mem-4] DONE (PASS, rc=0)
+
+real    118m42.138s
+user    117m53.172s
+sys     0m47.401s
+===========================
+
+Completed example
+
+
+
+===========================
+===========================
+
+
+Running tomasulo
+Moving into tomasulo directory
+
+===========================
+Running on the BUGGY design
+time sby -f sec.sby taskBMC_bug
+SBY 20:18:25 [sec_taskBMC_bug] Removing directory 'sec_taskBMC_bug'.
+SBY 20:18:25 [sec_taskBMC_bug] Copy 'tomasulo_bug.v' to 'sec_taskBMC_bug/src/tomasulo_bug.v'.
+SBY 20:18:25 [sec_taskBMC_bug] Copy 'formal.v' to 'sec_taskBMC_bug/src/formal.v'.
+SBY 20:18:25 [sec_taskBMC_bug] engine_0: smtbmc boolector
+SBY 20:18:25 [sec_taskBMC_bug] base: starting process "cd sec_taskBMC_bug/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:18:25 [sec_taskBMC_bug] base: Warning: Replacing memory \ROB_Dest with list of registers. See tomasulo_bug.v:215, tomasulo_bug.v:190
+SBY 20:18:35 [sec_taskBMC_bug] base: finished (returncode=0)
+SBY 20:18:35 [sec_taskBMC_bug] smt2: starting process "cd sec_taskBMC_bug/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:18:35 [sec_taskBMC_bug] smt2: finished (returncode=0)
+SBY 20:18:35 [sec_taskBMC_bug] engine_0: starting process "cd sec_taskBMC_bug; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:18:36 [sec_taskBMC_bug] engine_0: ##   0:00:00  Solver: boolector
+SBY 20:18:37 [sec_taskBMC_bug] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:18:37 [sec_taskBMC_bug] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:18:38 [sec_taskBMC_bug] engine_0: ##   0:00:01  Checking assumptions in step 1..
+SBY 20:18:38 [sec_taskBMC_bug] engine_0: ##   0:00:01  Checking assertions in step 1..
+SBY 20:18:39 [sec_taskBMC_bug] engine_0: ##   0:00:02  Checking assumptions in step 2..
+SBY 20:18:39 [sec_taskBMC_bug] engine_0: ##   0:00:02  Checking assertions in step 2..
+SBY 20:18:40 [sec_taskBMC_bug] engine_0: ##   0:00:03  Checking assumptions in step 3..
+SBY 20:18:40 [sec_taskBMC_bug] engine_0: ##   0:00:03  Checking assertions in step 3..
+SBY 20:18:41 [sec_taskBMC_bug] engine_0: ##   0:00:05  Checking assumptions in step 4..
+SBY 20:18:41 [sec_taskBMC_bug] engine_0: ##   0:00:05  Checking assertions in step 4..
+SBY 20:18:43 [sec_taskBMC_bug] engine_0: ##   0:00:07  Checking assumptions in step 5..
+SBY 20:18:43 [sec_taskBMC_bug] engine_0: ##   0:00:07  Checking assertions in step 5..
+SBY 20:18:45 [sec_taskBMC_bug] engine_0: ##   0:00:08  Checking assumptions in step 6..
+SBY 20:18:45 [sec_taskBMC_bug] engine_0: ##   0:00:09  Checking assertions in step 6..
+SBY 20:18:47 [sec_taskBMC_bug] engine_0: ##   0:00:10  Checking assumptions in step 7..
+SBY 20:18:47 [sec_taskBMC_bug] engine_0: ##   0:00:11  Checking assertions in step 7..
+SBY 20:18:49 [sec_taskBMC_bug] engine_0: ##   0:00:13  Checking assumptions in step 8..
+SBY 20:18:51 [sec_taskBMC_bug] engine_0: ##   0:00:14  Checking assertions in step 8..
+SBY 20:18:53 [sec_taskBMC_bug] engine_0: ##   0:00:17  Checking assumptions in step 9..
+SBY 20:18:56 [sec_taskBMC_bug] engine_0: ##   0:00:19  Checking assertions in step 9..
+SBY 20:18:58 [sec_taskBMC_bug] engine_0: ##   0:00:22  Checking assumptions in step 10..
+SBY 20:18:59 [sec_taskBMC_bug] engine_0: ##   0:00:23  Checking assertions in step 10..
+SBY 20:19:03 [sec_taskBMC_bug] engine_0: ##   0:00:27  Checking assumptions in step 11..
+SBY 20:19:05 [sec_taskBMC_bug] engine_0: ##   0:00:28  Checking assertions in step 11..
+SBY 20:19:12 [sec_taskBMC_bug] engine_0: ##   0:00:36  BMC failed!
+SBY 20:19:12 [sec_taskBMC_bug] engine_0: ##   0:00:36  Assert failed in Tomasulo: formal.v:142.29-144.34
+SBY 20:19:12 [sec_taskBMC_bug] engine_0: ##   0:00:36  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:19:14 [sec_taskBMC_bug] engine_0: ##   0:00:38  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:19:14 [sec_taskBMC_bug] engine_0: ##   0:00:38  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:19:15 [sec_taskBMC_bug] engine_0: ##   0:00:38  Status: failed
+SBY 20:19:15 [sec_taskBMC_bug] engine_0: finished (returncode=1)
+SBY 20:19:15 [sec_taskBMC_bug] engine_0: Status returned by engine: FAIL
+SBY 20:19:15 [sec_taskBMC_bug] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:50 (50)
+SBY 20:19:15 [sec_taskBMC_bug] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:54 (54)
+SBY 20:19:15 [sec_taskBMC_bug] summary: engine_0 (smtbmc boolector) returned FAIL
+SBY 20:19:15 [sec_taskBMC_bug] summary: counterexample trace: sec_taskBMC_bug/engine_0/trace.vcd
+SBY 20:19:15 [sec_taskBMC_bug] DONE (FAIL, rc=2)
+SBY 20:19:15 One or more tasks produced a non-zero return code.
+
+real    0m51.153s
+user    0m51.635s
+sys     0m3.549s
+===========================
+
+
+===========================
+Running on the CORRECTED design
+time sby -f sec.sby taskBMC
+SBY 20:19:16 [sec_taskBMC] Removing directory 'sec_taskBMC'.
+SBY 20:19:16 [sec_taskBMC] Copy 'tomasulo.v' to 'sec_taskBMC/src/tomasulo.v'.
+SBY 20:19:16 [sec_taskBMC] Copy 'formal.v' to 'sec_taskBMC/src/formal.v'.
+SBY 20:19:16 [sec_taskBMC] engine_0: smtbmc boolector
+SBY 20:19:16 [sec_taskBMC] base: starting process "cd sec_taskBMC/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:19:16 [sec_taskBMC] base: Warning: Replacing memory \ROB_Dest with list of registers. See tomasulo.v:215, tomasulo.v:190
+SBY 20:19:26 [sec_taskBMC] base: finished (returncode=0)
+SBY 20:19:26 [sec_taskBMC] smt2: starting process "cd sec_taskBMC/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:19:27 [sec_taskBMC] smt2: finished (returncode=0)
+SBY 20:19:27 [sec_taskBMC] engine_0: starting process "cd sec_taskBMC; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:19:27 [sec_taskBMC] engine_0: ##   0:00:00  Solver: boolector
+SBY 20:19:28 [sec_taskBMC] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:19:28 [sec_taskBMC] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:19:29 [sec_taskBMC] engine_0: ##   0:00:01  Checking assumptions in step 1..
+SBY 20:19:29 [sec_taskBMC] engine_0: ##   0:00:01  Checking assertions in step 1..
+SBY 20:19:30 [sec_taskBMC] engine_0: ##   0:00:02  Checking assumptions in step 2..
+SBY 20:19:30 [sec_taskBMC] engine_0: ##   0:00:02  Checking assertions in step 2..
+SBY 20:19:32 [sec_taskBMC] engine_0: ##   0:00:04  Checking assumptions in step 3..
+SBY 20:19:32 [sec_taskBMC] engine_0: ##   0:00:04  Checking assertions in step 3..
+SBY 20:19:33 [sec_taskBMC] engine_0: ##   0:00:05  Checking assumptions in step 4..
+SBY 20:19:33 [sec_taskBMC] engine_0: ##   0:00:06  Checking assertions in step 4..
+SBY 20:19:34 [sec_taskBMC] engine_0: ##   0:00:07  Checking assumptions in step 5..
+SBY 20:19:35 [sec_taskBMC] engine_0: ##   0:00:07  Checking assertions in step 5..
+SBY 20:19:36 [sec_taskBMC] engine_0: ##   0:00:09  Checking assumptions in step 6..
+SBY 20:19:37 [sec_taskBMC] engine_0: ##   0:00:09  Checking assertions in step 6..
+SBY 20:19:38 [sec_taskBMC] engine_0: ##   0:00:10  Checking assumptions in step 7..
+SBY 20:19:39 [sec_taskBMC] engine_0: ##   0:00:11  Checking assertions in step 7..
+SBY 20:19:40 [sec_taskBMC] engine_0: ##   0:00:12  Checking assumptions in step 8..
+SBY 20:19:41 [sec_taskBMC] engine_0: ##   0:00:13  Checking assertions in step 8..
+SBY 20:19:44 [sec_taskBMC] engine_0: ##   0:00:16  Checking assumptions in step 9..
+SBY 20:19:45 [sec_taskBMC] engine_0: ##   0:00:18  Checking assertions in step 9..
+SBY 20:19:48 [sec_taskBMC] engine_0: ##   0:00:20  Checking assumptions in step 10..
+SBY 20:19:50 [sec_taskBMC] engine_0: ##   0:00:22  Checking assertions in step 10..
+SBY 20:19:56 [sec_taskBMC] engine_0: ##   0:00:28  Checking assumptions in step 11..
+SBY 20:19:57 [sec_taskBMC] engine_0: ##   0:00:29  Checking assertions in step 11..
+SBY 20:20:06 [sec_taskBMC] engine_0: ##   0:00:38  Checking assumptions in step 12..
+SBY 20:20:11 [sec_taskBMC] engine_0: ##   0:00:43  Checking assertions in step 12..
+SBY 20:20:21 [sec_taskBMC] engine_0: ##   0:00:53  Checking assumptions in step 13..
+SBY 20:20:23 [sec_taskBMC] engine_0: ##   0:00:55  Checking assertions in step 13..
+SBY 20:20:41 [sec_taskBMC] engine_0: ##   0:01:13  Checking assumptions in step 14..
+SBY 20:20:47 [sec_taskBMC] engine_0: ##   0:01:19  Checking assertions in step 14..
+SBY 20:21:05 [sec_taskBMC] engine_0: ##   0:01:37  Checking assumptions in step 15..
+SBY 20:21:16 [sec_taskBMC] engine_0: ##   0:01:48  Checking assertions in step 15..
+SBY 20:21:49 [sec_taskBMC] engine_0: ##   0:02:21  Checking assumptions in step 16..
+SBY 20:22:02 [sec_taskBMC] engine_0: ##   0:02:34  Checking assertions in step 16..
+SBY 20:22:43 [sec_taskBMC] engine_0: ##   0:03:15  Checking assumptions in step 17..
+SBY 20:22:54 [sec_taskBMC] engine_0: ##   0:03:26  Checking assertions in step 17..
+SBY 20:23:37 [sec_taskBMC] engine_0: ##   0:04:09  Checking assumptions in step 18..
+SBY 20:23:43 [sec_taskBMC] engine_0: ##   0:04:15  Checking assertions in step 18..
+SBY 20:24:38 [sec_taskBMC] engine_0: ##   0:05:10  Checking assumptions in step 19..
+SBY 20:24:44 [sec_taskBMC] engine_0: ##   0:05:16  Checking assertions in step 19..
+SBY 20:25:44 [sec_taskBMC] engine_0: ##   0:06:17  waiting for solver (1 minute)
+SBY 20:25:51 [sec_taskBMC] engine_0: ##   0:06:23  Status: passed
+SBY 20:25:51 [sec_taskBMC] engine_0: finished (returncode=0)
+SBY 20:25:51 [sec_taskBMC] engine_0: Status returned by engine: pass
+SBY 20:25:51 [sec_taskBMC] summary: Elapsed clock time [H:MM:SS (secs)]: 0:06:35 (395)
+SBY 20:25:51 [sec_taskBMC] summary: Elapsed process time [H:MM:SS (secs)]: 0:06:41 (401)
+SBY 20:25:51 [sec_taskBMC] summary: engine_0 (smtbmc boolector) returned pass
+SBY 20:25:51 [sec_taskBMC] DONE (PASS, rc=0)
+
+real    6m35.912s
+user    6m37.245s
+sys     0m5.097s
+===========================
+
+Completed example
+
+
+
+===========================
+===========================
+
+
+Running sdram
+Moving into sdram directory
+
+===========================
+Running PDR proof for Pipeline axioms
+time sby -f sec.sby taskPipeline
+SBY 20:28:56 [sec_taskPipeline] Removing directory 'sec_taskPipeline'.
+SBY 20:28:56 [sec_taskPipeline] Copy 'sdram_controller.v' to 'sec_taskPipeline/src/sdram_controller.v'.
+SBY 20:28:56 [sec_taskPipeline] Copy 'FormalPipeline.v' to 'sec_taskPipeline/src/FormalPipeline.v'.
+SBY 20:28:56 [sec_taskPipeline] engine_0: abc pdr
+SBY 20:28:56 [sec_taskPipeline] nomem: starting process "cd sec_taskPipeline/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 20:28:57 [sec_taskPipeline] nomem: finished (returncode=0)
+SBY 20:28:57 [sec_taskPipeline] aig: starting process "cd sec_taskPipeline/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:28:58 [sec_taskPipeline] aig: finished (returncode=0)
+SBY 20:28:58 [sec_taskPipeline] engine_0: starting process "cd sec_taskPipeline; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 20:37:02 [sec_taskPipeline] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 20:37:02 [sec_taskPipeline] engine_0: Warning: The network has no constraints.
+SBY 20:37:02 [sec_taskPipeline] engine_0: Invariant F[89] : 368 clauses with 46 flops (out of 51) (cex = 0, ave = 27.78)
+SBY 20:37:02 [sec_taskPipeline] engine_0: Verification of invariant with 368 clauses was successful.  Time =     0.03 sec
+SBY 20:37:02 [sec_taskPipeline] engine_0: Property proved.  Time =   483.89 sec
+SBY 20:37:02 [sec_taskPipeline] engine_0: Counter-example is not available.
+SBY 20:37:02 [sec_taskPipeline] engine_0: finished (returncode=0)
+SBY 20:37:02 [sec_taskPipeline] engine_0: Status returned by engine: PASS
+SBY 20:37:02 [sec_taskPipeline] summary: Elapsed clock time [H:MM:SS (secs)]: 0:08:05 (485)
+SBY 20:37:02 [sec_taskPipeline] summary: Elapsed process time [H:MM:SS (secs)]: 0:08:05 (485)
+SBY 20:37:02 [sec_taskPipeline] summary: engine_0 (abc pdr) returned PASS
+SBY 20:37:02 [sec_taskPipeline] DONE (PASS, rc=0)
+
+real    8m6.523s
+user    7m31.335s
+sys     0m34.882s
+===========================
+
+
+===========================
+Running PDR proof for Interrupt axioms
+time sby -f sec.sby taskRefreshInterrupt
+SBY 20:41:40 [sec_taskRefreshInterrupt] Removing directory 'sec_taskRefreshInterrupt'.
+SBY 20:41:40 [sec_taskRefreshInterrupt] Copy 'sdram_controller.v' to 'sec_taskRefreshInterrupt/src/sdram_controller.v'.
+SBY 20:41:40 [sec_taskRefreshInterrupt] Copy 'FormalRefreshInterrupt.v' to 'sec_taskRefreshInterrupt/src/FormalRefreshInterrupt.v'.
+SBY 20:41:40 [sec_taskRefreshInterrupt] engine_0: abc pdr
+SBY 20:41:40 [sec_taskRefreshInterrupt] nomem: starting process "cd sec_taskRefreshInterrupt/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 20:41:41 [sec_taskRefreshInterrupt] nomem: finished (returncode=0)
+SBY 20:41:41 [sec_taskRefreshInterrupt] aig: starting process "cd sec_taskRefreshInterrupt/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:41:42 [sec_taskRefreshInterrupt] aig: finished (returncode=0)
+SBY 20:41:42 [sec_taskRefreshInterrupt] engine_0: starting process "cd sec_taskRefreshInterrupt; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Warning: The network has no constraints.
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Invariant F[59] : 115 clauses with 50 flops (out of 54) (cex = 0, ave = 29.78)
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Verification of invariant with 115 clauses was successful.  Time =     0.01 sec
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Property proved.  Time =    90.52 sec
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Counter-example is not available.
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: finished (returncode=0)
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Status returned by engine: PASS
+SBY 20:43:12 [sec_taskRefreshInterrupt] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:32 (92)
+SBY 20:43:12 [sec_taskRefreshInterrupt] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:32 (92)
+SBY 20:43:12 [sec_taskRefreshInterrupt] summary: engine_0 (abc pdr) returned PASS
+SBY 20:43:12 [sec_taskRefreshInterrupt] DONE (PASS, rc=0)
+
+real    1m33.471s
+user    1m26.885s
+sys     0m6.363s
+===========================
+
+Completed example
+
