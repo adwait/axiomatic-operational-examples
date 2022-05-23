@@ -1,0 +1,36 @@
+[tasks]
+taskBMC task_bmc files
+taskBMC_bug task_bmc files_bug
+
+[options]
+task_bmc:
+mode bmc
+depth 20
+--
+
+[engines]
+task_bmc:
+smtbmc boolector
+--
+
+[script]
+files:
+read -formal tomasulo.v
+prep -top Tomasulo
+--
+
+files_bug:
+read -formal tomasulo_bug.v
+prep -top Tomasulo
+--
+
+[files]
+files:
+tomasulo.v
+formal.v
+--
+
+files_bug:
+tomasulo_bug.v
+formal.v
+--

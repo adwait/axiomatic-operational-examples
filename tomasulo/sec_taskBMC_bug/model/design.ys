@@ -1,0 +1,15 @@
+# running in sec_taskBMC_bug/src/
+
+read -formal tomasulo_bug.v
+prep -top Tomasulo
+
+memory_nordff
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

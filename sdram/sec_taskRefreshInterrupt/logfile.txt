@@ -1,0 +1,21 @@
+SBY 20:41:40 [sec_taskRefreshInterrupt] Removing directory 'sec_taskRefreshInterrupt'.
+SBY 20:41:40 [sec_taskRefreshInterrupt] Copy 'sdram_controller.v' to 'sec_taskRefreshInterrupt/src/sdram_controller.v'.
+SBY 20:41:40 [sec_taskRefreshInterrupt] Copy 'FormalRefreshInterrupt.v' to 'sec_taskRefreshInterrupt/src/FormalRefreshInterrupt.v'.
+SBY 20:41:40 [sec_taskRefreshInterrupt] engine_0: abc pdr
+SBY 20:41:40 [sec_taskRefreshInterrupt] nomem: starting process "cd sec_taskRefreshInterrupt/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 20:41:41 [sec_taskRefreshInterrupt] nomem: finished (returncode=0)
+SBY 20:41:41 [sec_taskRefreshInterrupt] aig: starting process "cd sec_taskRefreshInterrupt/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:41:42 [sec_taskRefreshInterrupt] aig: finished (returncode=0)
+SBY 20:41:42 [sec_taskRefreshInterrupt] engine_0: starting process "cd sec_taskRefreshInterrupt; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Warning: The network has no constraints.
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Invariant F[59] : 115 clauses with 50 flops (out of 54) (cex = 0, ave = 29.78)
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Verification of invariant with 115 clauses was successful.  Time =     0.01 sec
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Property proved.  Time =    90.52 sec
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Counter-example is not available.
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: finished (returncode=0)
+SBY 20:43:12 [sec_taskRefreshInterrupt] engine_0: Status returned by engine: PASS
+SBY 20:43:12 [sec_taskRefreshInterrupt] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:32 (92)
+SBY 20:43:12 [sec_taskRefreshInterrupt] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:32 (92)
+SBY 20:43:12 [sec_taskRefreshInterrupt] summary: engine_0 (abc pdr) returned PASS
+SBY 20:43:12 [sec_taskRefreshInterrupt] DONE (PASS, rc=0)

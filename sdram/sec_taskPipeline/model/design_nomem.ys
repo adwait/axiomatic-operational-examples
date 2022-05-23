@@ -1,0 +1,16 @@
+# running in sec_taskPipeline/src/
+
+read -formal FormalPipeline.v
+read -formal sdram_controller.v
+prep -top FormalInduct
+
+memory_map
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design_nomem.il

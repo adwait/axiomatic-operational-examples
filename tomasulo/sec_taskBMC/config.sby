@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc boolector
+
+[script]
+read -formal tomasulo.v
+prep -top Tomasulo
+
+
+[files]
+tomasulo.v
+formal.v
+

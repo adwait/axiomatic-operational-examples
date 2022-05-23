@@ -1,0 +1,16 @@
+[options]
+mode prove
+
+[engines]
+abc pdr
+
+[script]
+
+read -formal FormalPipeline.v
+read -formal sdram_controller.v
+prep -top FormalInduct
+
+[files]
+
+sdram_controller.v
+FormalPipeline.v

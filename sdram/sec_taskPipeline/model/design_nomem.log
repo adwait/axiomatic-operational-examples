@@ -1,0 +1,644 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4052 (git sha1 a58571d0, clang 6.0.0-1ubuntu2 -fPIC -Os)
+
+
+-- Executing script file `../model/design_nomem.ys' --
+
+1. Executing Verilog-2005 frontend: FormalPipeline.v
+Parsing formal SystemVerilog input from `FormalPipeline.v' to AST representation.
+Storing AST representation for module `$abstract\FormalInduct'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: sdram_controller.v
+Parsing formal SystemVerilog input from `sdram_controller.v' to AST representation.
+Storing AST representation for module `$abstract\sdram_controller'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\FormalInduct'.
+Generating RTLIL representation for module `\FormalInduct'.
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \FormalInduct
+
+3.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\sdram_controller'.
+Generating RTLIL representation for module `\sdram_controller'.
+
+3.2.3. Analyzing design hierarchy..
+Top module:  \FormalInduct
+Used module:     \sdram_controller
+
+3.2.4. Analyzing design hierarchy..
+Top module:  \FormalInduct
+Used module:     \sdram_controller
+Removing unused module `$abstract\sdram_controller'.
+Removing unused module `$abstract\FormalInduct'.
+Removed 2 unused modules.
+Module FormalInduct directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 6 switch rules as full_case in process $proc$sdram_controller.v:292$184 in module sdram_controller.
+Marked 4 switch rules as full_case in process $proc$sdram_controller.v:242$176 in module sdram_controller.
+Marked 2 switch rules as full_case in process $proc$sdram_controller.v:231$172 in module sdram_controller.
+Marked 4 switch rules as full_case in process $proc$sdram_controller.v:185$159 in module sdram_controller.
+Marked 5 switch rules as full_case in process $proc$FormalPipeline.v:169$27 in module FormalInduct.
+Marked 1 switch rules as full_case in process $proc$FormalPipeline.v:154$20 in module FormalInduct.
+Removed a total of 0 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 33 assignments to connections.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\FormalInduct.$proc$FormalPipeline.v:0$153'.
+  Set init value: $formal$FormalPipeline.v:220$4_EN = 1'0
+Found init rule in `\FormalInduct.$proc$FormalPipeline.v:0$151'.
+  Set init value: $formal$FormalPipeline.v:219$3_EN = 1'0
+Found init rule in `\FormalInduct.$proc$FormalPipeline.v:0$150'.
+  Set init value: \init = 1'1
+  Set init value: \glob_ctr = 8'00000001
+  Set init value: \haddr = 24'000000000000000000000000
+  Set init value: \data_input = 16'0000000000000000
+  Set init value: \rd_enable = 1'0
+  Set init value: \wr_enable = 1'0
+  Set init value: \rst_n = 1'1
+  Set init value: \counter = 6'000000
+  Set init value: \progress_counter = 4'0000
+  Set init value: \instr_U = 2'00
+  Set init value: \in_use = 1'0
+  Set init value: \events = 0
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sdram_controller.$proc$sdram_controller.v:292$184'.
+     1/15: $6\command_nxt[7:0]
+     2/15: $6\next[4:0]
+     3/15: $3\state_cnt_nxt[3:0]
+     4/15: $5\next[4:0]
+     5/15: $2\state_cnt_nxt[3:0]
+     6/15: $5\command_nxt[7:0]
+     7/15: $4\command_nxt[7:0]
+     8/15: $4\next[4:0]
+     9/15: $3\command_nxt[7:0]
+    10/15: $3\next[4:0]
+    11/15: $2\command_nxt[7:0]
+    12/15: $2\next[4:0]
+    13/15: $1\next[4:0]
+    14/15: $1\command_nxt[7:0]
+    15/15: $1\state_cnt_nxt[3:0]
+Creating decoders for process `\sdram_controller.$proc$sdram_controller.v:242$176'.
+     1/6: $3\addr_r[12:0]
+     2/6: $2\addr_r[12:0]
+     3/6: $2\bank_addr_r[1:0]
+     4/6: $1\addr_r[12:0]
+     5/6: $1\bank_addr_r[1:0]
+     6/6: { $1\data_mask_low_r[0:0] $1\data_mask_high_r[0:0] }
+Creating decoders for process `\sdram_controller.$proc$sdram_controller.v:231$172'.
+     1/1: $0\refresh_cnt[9:0]
+Creating decoders for process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+     1/8: $0\busy[0:0]
+     2/8: $0\state_cnt[3:0]
+     3/8: $0\command[7:0]
+     4/8: $0\state[4:0]
+     5/8: $0\rd_ready_r[0:0]
+     6/8: $0\rd_data_r[15:0]
+     7/8: $0\wr_data_r[15:0]
+     8/8: $0\haddr_r[23:0]
+Creating decoders for process `\FormalInduct.$proc$FormalPipeline.v:0$153'.
+Creating decoders for process `\FormalInduct.$proc$FormalPipeline.v:0$151'.
+Creating decoders for process `\FormalInduct.$proc$FormalPipeline.v:0$150'.
+Creating decoders for process `\FormalInduct.$proc$FormalPipeline.v:219$57'.
+Creating decoders for process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+     1/16: $3$lookahead\events$26[31:0]$46
+     2/16: $3$bitselwrite$data$FormalPipeline.v:192$2[31:0]$45
+     3/16: $3$bitselwrite$mask$FormalPipeline.v:192$1[31:0]$44
+     4/16: $2$lookahead\events$26[31:0]$43
+     5/16: $2$bitselwrite$data$FormalPipeline.v:192$2[31:0]$42
+     6/16: $2$bitselwrite$mask$FormalPipeline.v:192$1[31:0]$41
+     7/16: $1$lookahead\events$26[31:0]$39
+     8/16: $1$bitselwrite$data$FormalPipeline.v:192$2[31:0]$38
+     9/16: $1$bitselwrite$mask$FormalPipeline.v:192$1[31:0]$37
+    10/16: $0\in_use[0:0]
+    11/16: $0\instr_U[1:0]
+    12/16: $0\progress_counter[3:0]
+    13/16: $0\wr_enable[0:0]
+    14/16: $0\rd_enable[0:0]
+    15/16: $0\data_input[15:0]
+    16/16: $0\haddr[23:0]
+Creating decoders for process `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+     1/2: $0\rst_n[0:0]
+     2/2: $0\init[0:0]
+
+3.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sdram_controller.\command_nxt' from process `\sdram_controller.$proc$sdram_controller.v:292$184'.
+No latch inferred for signal `\sdram_controller.\state_cnt_nxt' from process `\sdram_controller.$proc$sdram_controller.v:292$184'.
+No latch inferred for signal `\sdram_controller.\next' from process `\sdram_controller.$proc$sdram_controller.v:292$184'.
+No latch inferred for signal `\sdram_controller.\data_mask_low_r' from process `\sdram_controller.$proc$sdram_controller.v:242$176'.
+No latch inferred for signal `\sdram_controller.\data_mask_high_r' from process `\sdram_controller.$proc$sdram_controller.v:242$176'.
+No latch inferred for signal `\sdram_controller.\addr_r' from process `\sdram_controller.$proc$sdram_controller.v:242$176'.
+No latch inferred for signal `\sdram_controller.\bank_addr_r' from process `\sdram_controller.$proc$sdram_controller.v:242$176'.
+No latch inferred for signal `\FormalInduct.\data_r' from process `\FormalInduct.$proc$FormalPipeline.v:0$150'.
+
+3.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sdram_controller.\refresh_cnt' using process `\sdram_controller.$proc$sdram_controller.v:231$172'.
+  created $dff cell `$procdff$568' with positive edge clock.
+Creating register for signal `\sdram_controller.\busy' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$569' with positive edge clock.
+Creating register for signal `\sdram_controller.\haddr_r' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$570' with positive edge clock.
+Creating register for signal `\sdram_controller.\wr_data_r' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$571' with positive edge clock.
+Creating register for signal `\sdram_controller.\rd_data_r' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$572' with positive edge clock.
+Creating register for signal `\sdram_controller.\rd_ready_r' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$573' with positive edge clock.
+Creating register for signal `\sdram_controller.\state_cnt' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$574' with positive edge clock.
+Creating register for signal `\sdram_controller.\command' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$575' with positive edge clock.
+Creating register for signal `\sdram_controller.\state' using process `\sdram_controller.$proc$sdram_controller.v:185$159'.
+  created $dff cell `$procdff$576' with positive edge clock.
+Creating register for signal `\FormalInduct.$formal$FormalPipeline.v:219$3_CHECK' using process `\FormalInduct.$proc$FormalPipeline.v:219$57'.
+  created $dff cell `$procdff$577' with positive edge clock.
+Creating register for signal `\FormalInduct.$formal$FormalPipeline.v:219$3_EN' using process `\FormalInduct.$proc$FormalPipeline.v:219$57'.
+  created $dff cell `$procdff$578' with positive edge clock.
+Creating register for signal `\FormalInduct.$formal$FormalPipeline.v:220$4_CHECK' using process `\FormalInduct.$proc$FormalPipeline.v:219$57'.
+  created $dff cell `$procdff$579' with positive edge clock.
+Creating register for signal `\FormalInduct.$formal$FormalPipeline.v:220$4_EN' using process `\FormalInduct.$proc$FormalPipeline.v:219$57'.
+  created $dff cell `$procdff$580' with positive edge clock.
+Creating register for signal `\FormalInduct.\haddr' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$581' with positive edge clock.
+Creating register for signal `\FormalInduct.\data_input' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$582' with positive edge clock.
+Creating register for signal `\FormalInduct.\rd_enable' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$583' with positive edge clock.
+Creating register for signal `\FormalInduct.\wr_enable' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$584' with positive edge clock.
+Creating register for signal `\FormalInduct.\progress_counter' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$585' with positive edge clock.
+Creating register for signal `\FormalInduct.\instr_U' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$586' with positive edge clock.
+Creating register for signal `\FormalInduct.\in_use' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$587' with positive edge clock.
+Creating register for signal `\FormalInduct.\events' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$588' with positive edge clock.
+Creating register for signal `\FormalInduct.$bitselwrite$mask$FormalPipeline.v:192$1' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$589' with positive edge clock.
+Creating register for signal `\FormalInduct.$bitselwrite$data$FormalPipeline.v:192$2' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$590' with positive edge clock.
+Creating register for signal `\FormalInduct.$lookahead\events$26' using process `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+  created $dff cell `$procdff$591' with positive edge clock.
+Creating register for signal `\FormalInduct.\init' using process `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+  created $dff cell `$procdff$592' with positive edge clock.
+Creating register for signal `\FormalInduct.\glob_ctr' using process `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+  created $dff cell `$procdff$593' with positive edge clock.
+Creating register for signal `\FormalInduct.\rst_n' using process `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+  created $dff cell `$procdff$594' with positive edge clock.
+Creating register for signal `\FormalInduct.\counter' using process `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+  created $dff cell `$procdff$595' with positive edge clock.
+Creating register for signal `\FormalInduct.\in_use_P' using process `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+  created $dff cell `$procdff$596' with positive edge clock.
+
+3.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 6 empty switches in `\sdram_controller.$proc$sdram_controller.v:292$184'.
+Removing empty process `sdram_controller.$proc$sdram_controller.v:292$184'.
+Found and cleaned up 4 empty switches in `\sdram_controller.$proc$sdram_controller.v:242$176'.
+Removing empty process `sdram_controller.$proc$sdram_controller.v:242$176'.
+Found and cleaned up 2 empty switches in `\sdram_controller.$proc$sdram_controller.v:231$172'.
+Removing empty process `sdram_controller.$proc$sdram_controller.v:231$172'.
+Found and cleaned up 6 empty switches in `\sdram_controller.$proc$sdram_controller.v:185$159'.
+Removing empty process `sdram_controller.$proc$sdram_controller.v:185$159'.
+Removing empty process `FormalInduct.$proc$FormalPipeline.v:0$153'.
+Removing empty process `FormalInduct.$proc$FormalPipeline.v:0$151'.
+Removing empty process `FormalInduct.$proc$FormalPipeline.v:0$150'.
+Removing empty process `FormalInduct.$proc$FormalPipeline.v:219$57'.
+Found and cleaned up 8 empty switches in `\FormalInduct.$proc$FormalPipeline.v:169$27'.
+Removing empty process `FormalInduct.$proc$FormalPipeline.v:169$27'.
+Found and cleaned up 2 empty switches in `\FormalInduct.$proc$FormalPipeline.v:154$20'.
+Removing empty process `FormalInduct.$proc$FormalPipeline.v:154$20'.
+Cleaned up 28 empty switches.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sdram_controller.
+<suppressed ~10 debug messages>
+Optimizing module FormalInduct.
+<suppressed ~2 debug messages>
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sdram_controller..
+Finding unused cells or wires in module \FormalInduct..
+Removed 65 unused cells and 283 unused wires.
+<suppressed ~74 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module FormalInduct...
+Checking module sdram_controller...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FormalInduct.
+Optimizing module sdram_controller.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FormalInduct'.
+<suppressed ~60 debug messages>
+Finding identical cells in module `\sdram_controller'.
+<suppressed ~78 debug messages>
+Removed a total of 46 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FormalInduct..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$463: \in_use -> 1'0
+      Replacing known input bits on port A of cell $procmux$461: \in_use -> 1'1
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$409.
+    dead port 1/2 on $mux $procmux$412.
+    dead port 1/2 on $mux $procmux$436.
+Running muxtree optimizer on module \sdram_controller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$200.
+    dead port 1/2 on $mux $procmux$203.
+    dead port 2/2 on $mux $procmux$226.
+    dead port 1/2 on $mux $procmux$229.
+    dead port 2/2 on $mux $procmux$243.
+    dead port 1/2 on $mux $procmux$246.
+    dead port 1/2 on $mux $procmux$252.
+    dead port 2/2 on $mux $procmux$255.
+    dead port 1/2 on $mux $procmux$258.
+    dead port 1/2 on $mux $procmux$264.
+    dead port 1/2 on $mux $procmux$271.
+    dead port 1/2 on $mux $procmux$274.
+    dead port 2/2 on $mux $procmux$276.
+    dead port 1/2 on $mux $procmux$283.
+    dead port 1/2 on $mux $procmux$286.
+    dead port 2/2 on $mux $procmux$288.
+    dead port 1/2 on $mux $procmux$295.
+    dead port 2/2 on $mux $procmux$297.
+    dead port 1/2 on $mux $procmux$304.
+    dead port 2/2 on $mux $procmux$306.
+    dead port 2/2 on $mux $procmux$312.
+    dead port 2/2 on $mux $procmux$318.
+    dead port 1/2 on $mux $procmux$333.
+    dead port 1/2 on $mux $procmux$336.
+    dead port 1/2 on $mux $procmux$342.
+    dead port 1/2 on $mux $procmux$348.
+Removed 29 multiplexer ports.
+<suppressed ~22 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FormalInduct.
+  Optimizing cells in module \sdram_controller.
+    New ctrl vector for $pmux cell $procmux$234: { $auto$opt_reduce.cc:134:opt_mux$600 $auto$opt_reduce.cc:134:opt_mux$598 }
+    New ctrl vector for $pmux cell $procmux$192: { $procmux$199_CMP $procmux$196_CMP $auto$opt_reduce.cc:134:opt_mux$602 $procmux$194_CMP $procmux$193_CMP }
+  Optimizing cells in module \sdram_controller.
+Performed a total of 2 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FormalInduct'.
+Finding identical cells in module `\sdram_controller'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+Removed 0 unused cells and 75 unused wires.
+<suppressed ~2 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FormalInduct.
+Optimizing module sdram_controller.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FormalInduct..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sdram_controller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FormalInduct.
+  Optimizing cells in module \sdram_controller.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FormalInduct'.
+Finding identical cells in module `\sdram_controller'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FormalInduct.
+Optimizing module sdram_controller.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell FormalInduct.$eq$FormalPipeline.v:123$6 ($eq).
+Removed top 5 bits (of 6) from port B of cell FormalInduct.$add$FormalPipeline.v:155$21 ($add).
+Removed top 30 bits (of 32) from port B of cell FormalInduct.$lt$FormalPipeline.v:157$23 ($lt).
+Removed top 31 bits (of 32) from port B of cell FormalInduct.$add$FormalPipeline.v:191$47 ($add).
+Removed top 28 bits (of 32) from port Y of cell FormalInduct.$add$FormalPipeline.v:191$47 ($add).
+Removed top 31 bits (of 32) from port A of cell FormalInduct.$shl$FormalPipeline.v:0$49 ($shl).
+Removed top 2 bits (of 4) from port B of cell FormalInduct.$eq$FormalPipeline.v:196$53 ($eq).
+Removed top 28 bits (of 32) from wire FormalInduct.$add$FormalPipeline.v:191$47_Y.
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$eq$sdram_controller.v:173$156 ($eq).
+Removed top 4 bits (of 5) from port B of cell sdram_controller.$eq$sdram_controller.v:221$164 ($eq).
+Removed top 3 bits (of 5) from port B of cell sdram_controller.$eq$sdram_controller.v:221$166 ($eq).
+Removed top 3 bits (of 5) from port B of cell sdram_controller.$eq$sdram_controller.v:221$168 ($eq).
+Removed top 2 bits (of 5) from port B of cell sdram_controller.$eq$sdram_controller.v:221$170 ($eq).
+Removed top 22 bits (of 32) from port B of cell sdram_controller.$ge$sdram_controller.v:298$186 ($ge).
+Removed top 2 bits (of 8) from mux cell sdram_controller.$procmux$192 ($pmux).
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$procmux$196_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$procmux$197_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell sdram_controller.$procmux$198_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$procmux$199_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$procmux$220_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$procmux$222_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell sdram_controller.$procmux$224_CMP0 ($eq).
+Removed top 1 bits (of 4) from mux cell sdram_controller.$procmux$234 ($pmux).
+Removed top 2 bits (of 8) from mux cell sdram_controller.$procmux$268 ($mux).
+Removed top 2 bits (of 8) from mux cell sdram_controller.$procmux$292 ($mux).
+Removed top 2 bits (of 8) from mux cell sdram_controller.$procmux$310 ($mux).
+Removed top 1 bits (of 4) from mux cell sdram_controller.$procmux$327 ($mux).
+Removed top 3 bits (of 13) from mux cell sdram_controller.$procmux$330 ($mux).
+Removed top 2 bits (of 13) from mux cell sdram_controller.$procmux$339 ($mux).
+Removed top 2 bits (of 13) from wire sdram_controller.$2\addr_r[12:0].
+Removed top 2 bits (of 8) from wire sdram_controller.$2\command_nxt[7:0].
+Removed top 1 bits (of 4) from wire sdram_controller.$2\state_cnt_nxt[3:0].
+Removed top 3 bits (of 13) from wire sdram_controller.$3\addr_r[12:0].
+Removed top 2 bits (of 8) from wire sdram_controller.$3\command_nxt[7:0].
+Removed top 2 bits (of 8) from wire sdram_controller.$4\command_nxt[7:0].
+Removed top 1 bits (of 8) from wire sdram_controller.$5\command_nxt[7:0].
+Removed top 2 bits (of 8) from wire sdram_controller.$6\command_nxt[7:0].
+Removed top 1 bits (of 4) from wire sdram_controller.state_cnt_nxt.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~2 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FormalInduct.
+Optimizing module sdram_controller.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FormalInduct'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\sdram_controller'.
+Removed a total of 1 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== FormalInduct ===
+
+   Number of wires:                132
+   Number of wire bits:            872
+   Number of public wires:          35
+   Number of public wire bits:     233
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                120
+     $add                            2
+     $and                            1
+     $assert                         2
+     $dff                           14
+     $eq                             6
+     $logic_and                     23
+     $logic_not                     11
+     $logic_or                       4
+     $lt                             1
+     $mux                           41
+     $not                            1
+     $or                             1
+     $pmux                           2
+     $reduce_and                     2
+     $reduce_or                      7
+     $shl                            1
+     sdram_controller                1
+
+=== sdram_controller ===
+
+   Number of wires:                103
+   Number of wire bits:            579
+   Number of public wires:          37
+   Number of public wire bits:     262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     $add                            1
+     $dff                            9
+     $eq                            20
+     $ge                             1
+     $logic_not                      2
+     $logic_or                       4
+     $mux                           35
+     $or                             3
+     $pmux                           3
+     $reduce_or                      3
+     $sub                            1
+
+=== design hierarchy ===
+
+   FormalInduct                      1
+     sdram_controller                1
+
+   Number of wires:                235
+   Number of wire bits:           1451
+   Number of public wires:          72
+   Number of public wire bits:     495
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                201
+     $add                            3
+     $and                            1
+     $assert                         2
+     $dff                           23
+     $eq                            26
+     $ge                             1
+     $logic_and                     23
+     $logic_not                     13
+     $logic_or                       8
+     $lt                             1
+     $mux                           76
+     $not                            1
+     $or                             4
+     $pmux                           5
+     $reduce_and                     2
+     $reduce_or                     10
+     $shl                            1
+     $sub                            1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module FormalInduct...
+Checking module sdram_controller...
+Found and reported 0 problems.
+
+4. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+
+7. Executing SETUNDEF pass (replace undef values with defined constants).
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FormalInduct.
+Optimizing module sdram_controller.
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FormalInduct'.
+Finding identical cells in module `\sdram_controller'.
+Removed a total of 0 cells.
+
+8.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$592 ($dff) from module FormalInduct (D = 1'0, Q = \init).
+Adding EN signal on $procdff$588 ($dff) from module FormalInduct (D = $3$lookahead\events$26[31:0]$46, Q = \events).
+Adding SRST signal on $auto$opt_dff.cc:764:run$628 ($dffe) from module FormalInduct (D = $or$FormalPipeline.v:0$52_Y, Q = \events, rval = 0).
+Adding SRST signal on $procdff$587 ($dff) from module FormalInduct (D = $procmux$463_Y, Q = \in_use, rval = 1'1).
+Adding EN signal on $procdff$586 ($dff) from module FormalInduct (D = $0\instr_U[1:0], Q = \instr_U).
+Adding SRST signal on $procdff$585 ($dff) from module FormalInduct (D = $procmux$481_Y, Q = \progress_counter, rval = 4'0001).
+Adding EN signal on $auto$opt_dff.cc:702:run$638 ($sdff) from module FormalInduct (D = $procmux$479_Y, Q = \progress_counter).
+Adding EN signal on $procdff$584 ($dff) from module FormalInduct (D = $procmux$496_Y, Q = \wr_enable).
+Adding SRST signal on $auto$opt_dff.cc:764:run$648 ($dffe) from module FormalInduct (D = $procmux$493_Y, Q = \wr_enable, rval = 1'0).
+Adding EN signal on $procdff$583 ($dff) from module FormalInduct (D = $procmux$512_Y, Q = \rd_enable).
+Adding SRST signal on $auto$opt_dff.cc:764:run$658 ($dffe) from module FormalInduct (D = $procmux$509_Y, Q = \rd_enable, rval = 1'0).
+Adding EN signal on $procdff$582 ($dff) from module FormalInduct (D = $0\data_input[15:0], Q = \data_input).
+Adding EN signal on $procdff$581 ($dff) from module FormalInduct (D = $0\haddr[23:0], Q = \haddr).
+Adding SRST signal on $procdff$576 ($dff) from module sdram_controller (D = \next, Q = \state, rval = 5'01000).
+Adding EN signal on $auto$opt_dff.cc:702:run$690 ($sdff) from module sdram_controller (D = \next, Q = \state).
+Adding SRST signal on $procdff$575 ($dff) from module sdram_controller (D = \command_nxt [5:0], Q = \command [5:0], rval = 6'111000).
+Adding SRST signal on $procdff$575 ($dff) from module sdram_controller (D = { $auto$wreduce.cc:454:run$610 [7] $5\command_nxt[7:0] [6] }, Q = \command [7:6], rval = 2'10).
+Adding EN signal on $auto$opt_dff.cc:702:run$699 ($sdff) from module sdram_controller (D = 2'10, Q = \command [7:6]).
+Adding EN signal on $auto$opt_dff.cc:702:run$694 ($sdff) from module sdram_controller (D = \command_nxt [5:0], Q = \command [5:0]).
+Adding SRST signal on $procdff$574 ($dff) from module sdram_controller (D = $procmux$369_Y, Q = \state_cnt, rval = 4'1111).
+Adding EN signal on $procdff$573 ($dff) from module sdram_controller (D = $procmux$381_Y, Q = \rd_ready_r).
+Adding SRST signal on $procdff$572 ($dff) from module sdram_controller (D = $procmux$387_Y, Q = \rd_data_r, rval = 16'0000000000000000).
+Adding EN signal on $auto$opt_dff.cc:702:run$706 ($sdff) from module sdram_controller (D = \data_in, Q = \rd_data_r).
+Adding SRST signal on $procdff$571 ($dff) from module sdram_controller (D = $procmux$392_Y, Q = \wr_data_r, rval = 16'0000000000000000).
+Adding EN signal on $auto$opt_dff.cc:702:run$708 ($sdff) from module sdram_controller (D = \wr_data, Q = \wr_data_r).
+Adding SRST signal on $procdff$570 ($dff) from module sdram_controller (D = $procmux$400_Y, Q = \haddr_r, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$opt_dff.cc:702:run$710 ($sdff) from module sdram_controller (D = $procmux$400_Y, Q = \haddr_r).
+Adding SRST signal on $procdff$569 ($dff) from module sdram_controller (D = $logic_or$sdram_controller.v:221$171_Y, Q = \busy, rval = 1'0).
+Adding SRST signal on $procdff$568 ($dff) from module sdram_controller (D = $add$sdram_controller.v:238$175_Y, Q = \refresh_cnt, rval = 10'0000000000).
+
+8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+Removed 25 unused cells and 25 unused wires.
+<suppressed ~27 debug messages>
+
+8.5. Rerunning OPT passes. (Removed registers in this run.)
+
+8.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FormalInduct.
+<suppressed ~5 debug messages>
+Optimizing module sdram_controller.
+<suppressed ~3 debug messages>
+
+8.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FormalInduct'.
+<suppressed ~30 debug messages>
+Finding identical cells in module `\sdram_controller'.
+<suppressed ~6 debug messages>
+Removed a total of 12 cells.
+
+8.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FormalInduct..
+Finding unused cells or wires in module \sdram_controller..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+8.10. Finished fast OPT passes.
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module FormalInduct...
+Checking module sdram_controller...
+Found and reported 0 problems.
+
+10. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1. Analyzing design hierarchy..
+Top module:  \FormalInduct
+Used module:     \sdram_controller
+
+10.2. Analyzing design hierarchy..
+Top module:  \FormalInduct
+Used module:     \sdram_controller
+Removed 0 unused modules.
+Module FormalInduct directly or indirectly contains formal properties -> setting "keep" attribute.
+
+11. Executing RTLIL backend.
+Output filename: ../model/design_nomem.il
+
+End of script. Logfile hash: a876a2f032, CPU: user 0.52s system 0.01s, MEM: 14.41 MB peak
+Yosys 0.9+4052 (git sha1 a58571d0, clang 6.0.0-1ubuntu2 -fPIC -Os)
+Time spent: 27% 8x opt_clean (0 sec), 21% 3x check (0 sec), ...

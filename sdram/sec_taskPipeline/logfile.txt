@@ -1,0 +1,21 @@
+SBY 20:28:56 [sec_taskPipeline] Removing directory 'sec_taskPipeline'.
+SBY 20:28:56 [sec_taskPipeline] Copy 'sdram_controller.v' to 'sec_taskPipeline/src/sdram_controller.v'.
+SBY 20:28:56 [sec_taskPipeline] Copy 'FormalPipeline.v' to 'sec_taskPipeline/src/FormalPipeline.v'.
+SBY 20:28:56 [sec_taskPipeline] engine_0: abc pdr
+SBY 20:28:56 [sec_taskPipeline] nomem: starting process "cd sec_taskPipeline/src; yosys -ql ../model/design_nomem.log ../model/design_nomem.ys"
+SBY 20:28:57 [sec_taskPipeline] nomem: finished (returncode=0)
+SBY 20:28:57 [sec_taskPipeline] aig: starting process "cd sec_taskPipeline/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:28:58 [sec_taskPipeline] aig: finished (returncode=0)
+SBY 20:28:58 [sec_taskPipeline] engine_0: starting process "cd sec_taskPipeline; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw'"
+SBY 20:37:02 [sec_taskPipeline] engine_0: ABC command line: "read_aiger model/design_aiger.aig; fold; strash; pdr; write_cex -a engine_0/trace.aiw".
+SBY 20:37:02 [sec_taskPipeline] engine_0: Warning: The network has no constraints.
+SBY 20:37:02 [sec_taskPipeline] engine_0: Invariant F[89] : 368 clauses with 46 flops (out of 51) (cex = 0, ave = 27.78)
+SBY 20:37:02 [sec_taskPipeline] engine_0: Verification of invariant with 368 clauses was successful.  Time =     0.03 sec
+SBY 20:37:02 [sec_taskPipeline] engine_0: Property proved.  Time =   483.89 sec
+SBY 20:37:02 [sec_taskPipeline] engine_0: Counter-example is not available.
+SBY 20:37:02 [sec_taskPipeline] engine_0: finished (returncode=0)
+SBY 20:37:02 [sec_taskPipeline] engine_0: Status returned by engine: PASS
+SBY 20:37:02 [sec_taskPipeline] summary: Elapsed clock time [H:MM:SS (secs)]: 0:08:05 (485)
+SBY 20:37:02 [sec_taskPipeline] summary: Elapsed process time [H:MM:SS (secs)]: 0:08:05 (485)
+SBY 20:37:02 [sec_taskPipeline] summary: engine_0 (abc pdr) returned PASS
+SBY 20:37:02 [sec_taskPipeline] DONE (PASS, rc=0)

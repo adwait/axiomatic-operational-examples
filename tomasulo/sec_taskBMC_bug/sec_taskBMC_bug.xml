@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="1" tests="1" time="54">
+<testsuite disabled="0" errors="0" failures="1" name="sec" skipped="0" tests="1" time="54">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="sec" name="taskBMC_bug" status="FAIL" time="54">
+<failure message="FAIL" type="FAIL"/>
+<system-out>SBY 20:18:25 [sec_taskBMC_bug] Removing directory 'sec_taskBMC_bug'.
+SBY 20:18:25 [sec_taskBMC_bug] Copy 'tomasulo_bug.v' to 'sec_taskBMC_bug/src/tomasulo_bug.v'.
+SBY 20:18:25 [sec_taskBMC_bug] Copy 'formal.v' to 'sec_taskBMC_bug/src/formal.v'.
+SBY 20:18:25 [sec_taskBMC_bug] engine_0: smtbmc boolector
+SBY 20:18:25 [sec_taskBMC_bug] base: starting process &quot;cd sec_taskBMC_bug/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 20:18:25 [sec_taskBMC_bug] base: Warning: Replacing memory \ROB_Dest with list of registers. See tomasulo_bug.v:215, tomasulo_bug.v:190
+SBY 20:18:35 [sec_taskBMC_bug] base: finished (returncode=0)
+SBY 20:18:35 [sec_taskBMC_bug] smt2: starting process &quot;cd sec_taskBMC_bug/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 20:18:35 [sec_taskBMC_bug] smt2: finished (returncode=0)
+SBY 20:18:35 [sec_taskBMC_bug] engine_0: starting process &quot;cd sec_taskBMC_bug; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 20:18:36 [sec_taskBMC_bug] engine_0: ##   0:00:00  Solver: boolector
+SBY 20:18:37 [sec_taskBMC_bug] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:18:37 [sec_taskBMC_bug] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:18:38 [sec_taskBMC_bug] engine_0: ##   0:00:01  Checking assumptions in step 1..
+SBY 20:18:38 [sec_taskBMC_bug] engine_0: ##   0:00:01  Checking assertions in step 1..
+SBY 20:18:39 [sec_taskBMC_bug] engine_0: ##   0:00:02  Checking assumptions in step 2..
+SBY 20:18:39 [sec_taskBMC_bug] engine_0: ##   0:00:02  Checking assertions in step 2..
+SBY 20:18:40 [sec_taskBMC_bug] engine_0: ##   0:00:03  Checking assumptions in step 3..
+SBY 20:18:40 [sec_taskBMC_bug] engine_0: ##   0:00:03  Checking assertions in step 3..
+SBY 20:18:41 [sec_taskBMC_bug] engine_0: ##   0:00:05  Checking assumptions in step 4..
+SBY 20:18:41 [sec_taskBMC_bug] engine_0: ##   0:00:05  Checking assertions in step 4..
+SBY 20:18:43 [sec_taskBMC_bug] engine_0: ##   0:00:07  Checking assumptions in step 5..
+SBY 20:18:43 [sec_taskBMC_bug] engine_0: ##   0:00:07  Checking assertions in step 5..
+SBY 20:18:45 [sec_taskBMC_bug] engine_0: ##   0:00:08  Checking assumptions in step 6..
+SBY 20:18:45 [sec_taskBMC_bug] engine_0: ##   0:00:09  Checking assertions in step 6..
+SBY 20:18:47 [sec_taskBMC_bug] engine_0: ##   0:00:10  Checking assumptions in step 7..
+SBY 20:18:47 [sec_taskBMC_bug] engine_0: ##   0:00:11  Checking assertions in step 7..
+SBY 20:18:49 [sec_taskBMC_bug] engine_0: ##   0:00:13  Checking assumptions in step 8..
+SBY 20:18:51 [sec_taskBMC_bug] engine_0: ##   0:00:14  Checking assertions in step 8..
+SBY 20:18:53 [sec_taskBMC_bug] engine_0: ##   0:00:17  Checking assumptions in step 9..
+SBY 20:18:56 [sec_taskBMC_bug] engine_0: ##   0:00:19  Checking assertions in step 9..
+SBY 20:18:58 [sec_taskBMC_bug] engine_0: ##   0:00:22  Checking assumptions in step 10..
+SBY 20:18:59 [sec_taskBMC_bug] engine_0: ##   0:00:23  Checking assertions in step 10..
+SBY 20:19:03 [sec_taskBMC_bug] engine_0: ##   0:00:27  Checking assumptions in step 11..
+SBY 20:19:05 [sec_taskBMC_bug] engine_0: ##   0:00:28  Checking assertions in step 11..
+SBY 20:19:12 [sec_taskBMC_bug] engine_0: ##   0:00:36  BMC failed!
+SBY 20:19:12 [sec_taskBMC_bug] engine_0: ##   0:00:36  Assert failed in Tomasulo: formal.v:142.29-144.34
+SBY 20:19:12 [sec_taskBMC_bug] engine_0: ##   0:00:36  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:19:14 [sec_taskBMC_bug] engine_0: ##   0:00:38  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:19:14 [sec_taskBMC_bug] engine_0: ##   0:00:38  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:19:15 [sec_taskBMC_bug] engine_0: ##   0:00:38  Status: failed
+SBY 20:19:15 [sec_taskBMC_bug] engine_0: finished (returncode=1)
+SBY 20:19:15 [sec_taskBMC_bug] engine_0: Status returned by engine: FAIL
+SBY 20:19:15 [sec_taskBMC_bug] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:50 (50)
+SBY 20:19:15 [sec_taskBMC_bug] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:54 (54)
+SBY 20:19:15 [sec_taskBMC_bug] summary: engine_0 (smtbmc boolector) returned FAIL
+SBY 20:19:15 [sec_taskBMC_bug] summary: counterexample trace: sec_taskBMC_bug/engine_0/trace.vcd
+SBY 20:19:15 [sec_taskBMC_bug] DONE (FAIL, rc=2)
+</system-out></testcase></testsuite></testsuites>

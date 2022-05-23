@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="401">
+<testsuite disabled="0" errors="0" failures="0" name="sec" skipped="0" tests="1" time="401">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="sec" name="taskBMC" status="PASS" time="401">
+<system-out>SBY 20:19:16 [sec_taskBMC] Removing directory 'sec_taskBMC'.
+SBY 20:19:16 [sec_taskBMC] Copy 'tomasulo.v' to 'sec_taskBMC/src/tomasulo.v'.
+SBY 20:19:16 [sec_taskBMC] Copy 'formal.v' to 'sec_taskBMC/src/formal.v'.
+SBY 20:19:16 [sec_taskBMC] engine_0: smtbmc boolector
+SBY 20:19:16 [sec_taskBMC] base: starting process &quot;cd sec_taskBMC/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 20:19:16 [sec_taskBMC] base: Warning: Replacing memory \ROB_Dest with list of registers. See tomasulo.v:215, tomasulo.v:190
+SBY 20:19:26 [sec_taskBMC] base: finished (returncode=0)
+SBY 20:19:26 [sec_taskBMC] smt2: starting process &quot;cd sec_taskBMC/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 20:19:27 [sec_taskBMC] smt2: finished (returncode=0)
+SBY 20:19:27 [sec_taskBMC] engine_0: starting process &quot;cd sec_taskBMC; yosys-smtbmc -s boolector --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 20:19:27 [sec_taskBMC] engine_0: ##   0:00:00  Solver: boolector
+SBY 20:19:28 [sec_taskBMC] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:19:28 [sec_taskBMC] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:19:29 [sec_taskBMC] engine_0: ##   0:00:01  Checking assumptions in step 1..
+SBY 20:19:29 [sec_taskBMC] engine_0: ##   0:00:01  Checking assertions in step 1..
+SBY 20:19:30 [sec_taskBMC] engine_0: ##   0:00:02  Checking assumptions in step 2..
+SBY 20:19:30 [sec_taskBMC] engine_0: ##   0:00:02  Checking assertions in step 2..
+SBY 20:19:32 [sec_taskBMC] engine_0: ##   0:00:04  Checking assumptions in step 3..
+SBY 20:19:32 [sec_taskBMC] engine_0: ##   0:00:04  Checking assertions in step 3..
+SBY 20:19:33 [sec_taskBMC] engine_0: ##   0:00:05  Checking assumptions in step 4..
+SBY 20:19:33 [sec_taskBMC] engine_0: ##   0:00:06  Checking assertions in step 4..
+SBY 20:19:34 [sec_taskBMC] engine_0: ##   0:00:07  Checking assumptions in step 5..
+SBY 20:19:35 [sec_taskBMC] engine_0: ##   0:00:07  Checking assertions in step 5..
+SBY 20:19:36 [sec_taskBMC] engine_0: ##   0:00:09  Checking assumptions in step 6..
+SBY 20:19:37 [sec_taskBMC] engine_0: ##   0:00:09  Checking assertions in step 6..
+SBY 20:19:38 [sec_taskBMC] engine_0: ##   0:00:10  Checking assumptions in step 7..
+SBY 20:19:39 [sec_taskBMC] engine_0: ##   0:00:11  Checking assertions in step 7..
+SBY 20:19:40 [sec_taskBMC] engine_0: ##   0:00:12  Checking assumptions in step 8..
+SBY 20:19:41 [sec_taskBMC] engine_0: ##   0:00:13  Checking assertions in step 8..
+SBY 20:19:44 [sec_taskBMC] engine_0: ##   0:00:16  Checking assumptions in step 9..
+SBY 20:19:45 [sec_taskBMC] engine_0: ##   0:00:18  Checking assertions in step 9..
+SBY 20:19:48 [sec_taskBMC] engine_0: ##   0:00:20  Checking assumptions in step 10..
+SBY 20:19:50 [sec_taskBMC] engine_0: ##   0:00:22  Checking assertions in step 10..
+SBY 20:19:56 [sec_taskBMC] engine_0: ##   0:00:28  Checking assumptions in step 11..
+SBY 20:19:57 [sec_taskBMC] engine_0: ##   0:00:29  Checking assertions in step 11..
+SBY 20:20:06 [sec_taskBMC] engine_0: ##   0:00:38  Checking assumptions in step 12..
+SBY 20:20:11 [sec_taskBMC] engine_0: ##   0:00:43  Checking assertions in step 12..
+SBY 20:20:21 [sec_taskBMC] engine_0: ##   0:00:53  Checking assumptions in step 13..
+SBY 20:20:23 [sec_taskBMC] engine_0: ##   0:00:55  Checking assertions in step 13..
+SBY 20:20:41 [sec_taskBMC] engine_0: ##   0:01:13  Checking assumptions in step 14..
+SBY 20:20:47 [sec_taskBMC] engine_0: ##   0:01:19  Checking assertions in step 14..
+SBY 20:21:05 [sec_taskBMC] engine_0: ##   0:01:37  Checking assumptions in step 15..
+SBY 20:21:16 [sec_taskBMC] engine_0: ##   0:01:48  Checking assertions in step 15..
+SBY 20:21:49 [sec_taskBMC] engine_0: ##   0:02:21  Checking assumptions in step 16..
+SBY 20:22:02 [sec_taskBMC] engine_0: ##   0:02:34  Checking assertions in step 16..
+SBY 20:22:43 [sec_taskBMC] engine_0: ##   0:03:15  Checking assumptions in step 17..
+SBY 20:22:54 [sec_taskBMC] engine_0: ##   0:03:26  Checking assertions in step 17..
+SBY 20:23:37 [sec_taskBMC] engine_0: ##   0:04:09  Checking assumptions in step 18..
+SBY 20:23:43 [sec_taskBMC] engine_0: ##   0:04:15  Checking assertions in step 18..
+SBY 20:24:38 [sec_taskBMC] engine_0: ##   0:05:10  Checking assumptions in step 19..
+SBY 20:24:44 [sec_taskBMC] engine_0: ##   0:05:16  Checking assertions in step 19..
+SBY 20:25:44 [sec_taskBMC] engine_0: ##   0:06:17  waiting for solver (1 minute)
+SBY 20:25:51 [sec_taskBMC] engine_0: ##   0:06:23  Status: passed
+SBY 20:25:51 [sec_taskBMC] engine_0: finished (returncode=0)
+SBY 20:25:51 [sec_taskBMC] engine_0: Status returned by engine: pass
+SBY 20:25:51 [sec_taskBMC] summary: Elapsed clock time [H:MM:SS (secs)]: 0:06:35 (395)
+SBY 20:25:51 [sec_taskBMC] summary: Elapsed process time [H:MM:SS (secs)]: 0:06:41 (401)
+SBY 20:25:51 [sec_taskBMC] summary: engine_0 (smtbmc boolector) returned pass
+SBY 20:25:51 [sec_taskBMC] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>

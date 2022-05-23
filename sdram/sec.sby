@@ -1,0 +1,37 @@
+[tasks]
+taskRefreshInterrupt task_ind files_interrupt
+taskPipeline task_ind files_pipeline
+
+[options]
+task_ind:
+mode prove
+--
+
+[engines]
+task_ind:
+abc pdr
+--
+
+[script]
+files_interrupt:
+read -formal FormalRefreshInterrupt.v
+read -formal sdram_controller.v
+prep -top FormalInduct
+--
+
+files_pipeline:
+read -formal FormalPipeline.v
+read -formal sdram_controller.v
+prep -top FormalInduct
+--
+
+[files]
+files_interrupt:
+sdram_controller.v
+FormalRefreshInterrupt.v
+--
+
+files_pipeline:
+sdram_controller.v
+FormalPipeline.v
+--
